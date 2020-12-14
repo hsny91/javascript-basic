@@ -1,10 +1,8 @@
-let suspectWagon = Math.floor((Math.random() * 10) + 1);
+const suspectWagon = Math.floor((Math.random() * 10) + 1);
+alert(suspectWagon)
 for (let selectionRepeatNumber = 1; selectionRepeatNumber <= 4; selectionRepeatNumber++) {
-    let chosenWagon = prompt("Chose Wagon");
-    if (selectionRepeatNumber == 4 && chosenWagon != suspectWagon) {
-        alert(`You can not find Suspect. The suspect is in wagon number ${ suspectWagon } `)
-    } else {
-        if (chosenWagon == suspectWagon) {
+    let chosenWagon =+prompt("Chose Wagon"); 
+        if (chosenWagon === suspectWagon) {
             let puan = 100 - 25 * (selectionRepeatNumber - 1)
             alert(`You can find suspect. Yor scorre ${puan} `);
             break;
@@ -13,5 +11,8 @@ for (let selectionRepeatNumber = 1; selectionRepeatNumber <= 4; selectionRepeatN
         } else if (chosenWagon > suspectWagon) {
             alert("FORWARD TO THE FRONT WAGON")
         }
-    }
+        if (selectionRepeatNumber == 4 && chosenWagon != suspectWagon) {
+            alert(`You can not find Suspect. The suspect is in wagon number ${ suspectWagon } `)
+        }
+    
 }
