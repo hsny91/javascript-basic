@@ -22,10 +22,12 @@ console.log(upperFirstLetter);
 
 
 // yildiz 
-let stars = [];
-for (let index = 0; index < 6; index++) {
-    stars.push("*")
-    console.log(stars.join(""))
+let starList = [];
+const MAX_STAR=6;
+const YILDIZ="*";
+for (let startIndex = 0; startIndex < MAX_STAR; startIndex++) {
+    starList.push(YILDIZ)
+    console.log(starList.join(""))
 }
 
 // Asal sayilar
