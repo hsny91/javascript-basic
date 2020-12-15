@@ -20,26 +20,25 @@ for (let indexOfList = 0; indexOfList < nameSurnameList.length; indexOfList++) {
 let upperFirstLetter = nameSurnameList.join(" ");
 console.log(upperFirstLetter);
 
-//Asal sayilari bulma
-const MAX_BOUNDARY = 100;
-for (let minBoundary = 0; minBoundary < MAX_BOUNDARY; minBoundary++) {
 
-}
 // yildiz 
-const MAX_NUMBER = 6;
-for (let i = 0; i < MAX_NUMBER; i++) {
-    for (let x = 0; x<= i; x++) {
-        console.log("*")
-    }
-    console.log("\n")
-    
+let stars = [];
+for (let index = 0; index < 6; index++) {
+    stars.push("*")
+    console.log(stars.join(""))
 }
-// for(i=1;i<=10;i++)
-// {
-// for(a=1;a<=i;a++)
-// {
-// document.write(“*“);
-// }
-// document.write(“<br>“);
 
-// }
+// Asal sayilar
+const MAX_BOUNDARY = 100;
+for (let primeNumber = 2; primeNumber < MAX_BOUNDARY; primeNumber++) {
+    let controlPrime = true;
+    for (let divisorNumber = 2; divisorNumber < primeNumber; divisorNumber++) {
+        if (primeNumber % divisorNumber == 0) {
+            controlPrime = false;
+            break;
+        }
+    }
+    if (controlPrime) {
+        console.log(primeNumber);
+    }
+}
