@@ -1,7 +1,9 @@
 /** 1)  string olarak verilen bir isim ve soyismin sadece bas harflerini Uppercase a cevirin.
-    3)  0 dan 100 e kadar olan prime (asal sayilari) yazdirin (Asal sayilar: sadece kendisine ve 1 e bolunebilen sayilar)
-         bulunmasi gereken sonuc: 1, 2, 3, 5, 7, 11 ....
-    5)  Asagidaki sekli programlama yapilarini kullanarak cizdiriniz.
+ *  2)  0 dan 100 e kadar olan sayilari, bir satirda 10 sayi ve her sayinin arasinda virgul olacak sekilde yazdiriniz (10x10 luk bir     *  kare seklinde)
+ *  3)  0 dan 100 e kadar olan prime (asal sayilari) yazdirin (Asal sayilar: sadece kendisine ve 1 e bolunebilen sayilar)
+ *   bulunmasi gereken sonuc: 1, 2, 3, 5, 7, 11 ....
+ *  4)
+ *  5)  Asagidaki sekli programlama yapilarini kullanarak cizdiriniz.
 ​
           *
           **
@@ -20,8 +22,10 @@ for (let indexOfList = 0; indexOfList < nameSurnameList.length; indexOfList++) {
 let upperFirstLetter = nameSurnameList.join(" ");
 console.log(upperFirstLetter);
 
+// 10X10 Matris
+let matris;
 
-// yildiz 
+// yildiz olusturma 
 let starList = [];
 const MAX_STAR=6;
 const YILDIZ="*";
@@ -30,7 +34,7 @@ for (let startIndex = 0; startIndex < MAX_STAR; startIndex++) {
     console.log(starList.join(""))
 }
 
-// Asal sayilar
+// Asal sayilari bulma
 const MAX_BOUNDARY = 100;
 for (let primeNumber = 2; primeNumber < MAX_BOUNDARY; primeNumber++) {
     let controlPrime = true;
@@ -44,3 +48,4 @@ for (let primeNumber = 2; primeNumber < MAX_BOUNDARY; primeNumber++) {
         console.log(primeNumber);
     }
 }
+console.log("ahmet \n ayse")
