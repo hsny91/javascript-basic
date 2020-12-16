@@ -41,11 +41,26 @@ for (let primeNumber = 2; primeNumber < MAX_BOUNDARY; primeNumber++) {
         console.log(primeNumber);
     }
 }
+
 // password olusturma 
+const NUMBER_OF_PASSWORD = 50;
+const PASSWORD_MAX = 8;
+const PASSWORD_MIN = 16;
+var charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz.!'^+%&/()=?_";
+for (index = 0; index < NUMBER_OF_PASSWORD; index++) {
+    let passwordLength = Math.floor(Math.random() * (PASSWORD_MAX - PASSWORD_MIN)) + PASSWORD_MIN;
+let randomPassword = '';
+for (let passwordIndex = 0; passwordIndex < passwordLength; passwordIndex++) {
+    let randomNumber = Math.floor(Math.random() * charset.length);
+    randomPassword += charset.substring(randomNumber, randomNumber + 1);
+}
+console.log(`Password: ${randomPassword}`);
+}
+
 // yildiz olusturma 
 let starList = [];
-const MAX_STAR=6;
-const YILDIZ="*";
+const MAX_STAR = 6;
+const YILDIZ = "*";
 for (let startIndex = 0; startIndex < MAX_STAR; startIndex++) {
     starList.push(YILDIZ)
     console.log(starList.join(""))
