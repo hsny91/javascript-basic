@@ -1,2 +1,1 @@
-const AnimalList = ["inek", "inek", "tavuk", "domuz", "inek","inek","domuz","domuz","inek","koyun","inek", "inek", "tavuk", "domuz", "inek","inek","domuz","domuz","inek","koyun"];
-
+const AnimalList = ["cow", "sheep", "chicken", "pig", "cow", "cow", "pig", "sheep", "cow", "sheep", "cow", "cow", "chicken"];
