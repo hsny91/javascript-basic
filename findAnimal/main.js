@@ -12,13 +12,13 @@ for (i = 0; i < AnimalList.length; i++) {
     if (AnimalList[i].includes("cow")) {
         numberOfCow++
     }
-    if (AnimalList[i].includes("chicken")) {
+    else if (AnimalList[i].includes("chicken")) {
         numberOfChicken++
     }
-    if (AnimalList[i].includes("pig")) {
+    else if (AnimalList[i].includes("pig")) {
         numberOfPig++
     }
-    if (AnimalList[i].includes("sheep")) {
+    else if (AnimalList[i].includes("sheep")) {
         numberOfShepp++
     }
 
