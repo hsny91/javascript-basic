@@ -25,3 +25,4 @@ for (i = 0; i < AnimalList.length; i++) {
 }
 let helalBacakSayisi = numberOfCow * cowLeg + numberOfShepp * sheepLeg + numberOfChicken * chickenLeg;
 console.log(`Helal bacak sayisi: ${helalBacakSayisi}`);
+
