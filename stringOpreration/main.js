@@ -23,9 +23,12 @@ let upperFirstLetter = nameSurnameList.join(" ");
 console.log(upperFirstLetter);
 
 // 10X10 Matris
-let matris;
+let matrisList=[];
+for(i=1;i<100;i++){
+    matrisList.push(i);
 
-
+}
+console.log(matrisList.join(","))
 
 // Asal sayilari bulma
 const MAX_BOUNDARY = 100;
@@ -64,4 +67,25 @@ const YILDIZ = "*";
 for (let startIndex = 0; startIndex < MAX_STAR; startIndex++) {
     starList.push(YILDIZ)
     console.log(starList.join(""))
+}
+
+
+let numberList = [];
+for (var i = 1; i <= 100; i++) {
+    numberList.push(i);
+    if (i % 10 == 0) {
+        numberList.push("\n")
+    }
+}
+console.log(numberList.join(','));
+
+let numbers = 0;
+for (i = 1; i <= 100; i++) {
+    numbers += i;
+  if (i % 10 === 0) {
+    console.log(numbers);
+    numbers = "";
+  } else {
+    numbers += ",";
+  }
 }
