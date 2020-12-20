@@ -24,12 +24,16 @@ console.log(upperFirstLetter);
 
 // 10X10 Matris
 let numberList = [];
-for (var i = 1; i <= 100; i++) {
+let totalString = "";
+for (let index = 1; index <= 100; index++) {
     numberList.push(i);
     if (i % 10 == 0) {
-        numberList.push("\n")
+        totalString += numberList.join(",") + "\n"; 
+        numberList.length = 0;
     }
 }
+console.log(totalString);
+
 console.log(numberList.join(','));
 
 // Asal sayilari bulma
