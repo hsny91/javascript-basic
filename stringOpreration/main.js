@@ -51,13 +51,27 @@ for (let primeNumber = 2; primeNumber < MAX_BOUNDARY; primeNumber++) {
 const NUMBER_OF_PASSWORD = 50;
 const PASSWORD_MAX = 8;
 const PASSWORD_MIN = 16;
-const charset = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz.!'^+%&/()=?_";
+const charsetLetter = "abcdefghiklmnopqrstuvwxyz";
+const charsetLetterCapital="ABCDEFGHIJKLMNOPQRSTUVWXTZ";
+const charset= ".!'^+%&/*()=?_";
+const charsetNumber= "0123456789";
 for (let index = 0; index < NUMBER_OF_PASSWORD; index++) {
     let passwordLength = Math.floor(Math.random() * (PASSWORD_MAX - PASSWORD_MIN)) + PASSWORD_MIN;
-let randomPassword = '';
-for (let passwordIndex = 0; passwordIndex < passwordLength; passwordIndex++) {
-    let randomNumber = Math.floor(Math.random() * charset.length);
-    randomPassword += charset.substr(randomNumber,1);
+    let randomPassword ="";
+for (let passwordIndex = 1; passwordIndex < passwordLength; passwordIndex++) {
+    if (passwordIndex % 3 == 0) {
+        let randomNumber = Math.floor(Math.random() * charset.length);
+        randomPassword += charset.charAt(randomNumber)
+    } else if (passwordIndex % 4 == 0) {
+        let randomNumber = Math.floor(Math.random() * charsetLetterCapital.length);
+        randomPassword += charsetLetterCapital.charAt(randomNumber)
+    } else if (passwordIndex % 5 == 0) {
+        let randomNumber = Math.floor(Math.random() * charsetNumber.length);
+        randomPassword += charsetNumber.charAt(randomNumber)
+    } else {
+        let randomNumber = Math.floor(Math.random() * charsetLetter.length);
+        randomPassword += charsetLetter.charAt(randomNumber)
+    }
 }
 console.log(`Password: ${randomPassword}`);
 }
