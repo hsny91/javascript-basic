@@ -14,15 +14,24 @@ const notes = [
  * 
  * finding the Avarage note function
  */
-function findLessonAvarage(pNoteList,pIndex){
+function findLessonAverage(pNoteList,pIndex){
     let toplam=0; 
     pNoteList.map(note=>toplam+=note[pIndex]);
-    let avarage=toplam/pNoteList.length;
-    console.log(avarage)
-    return avarage;
+    let average=toplam/pNoteList.length;
+    console.log(average)
+    return average;
 }
-// Math avarage
-findLessonAvarage(notes,1);
+// Math Average
+findLessonAverage(notes,1);
+
+// German Avarage
+findLessonAverage(notes,2);
+
+//English Average
+findLessonAverage(notes,3);
+
+//Geography Average
+findLessonAverage(notes,4);
 
 
 
