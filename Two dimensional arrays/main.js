@@ -8,6 +8,11 @@ const notes = [
     ["Urs", 49, 45, 56, 67],
     ["Monika", 49, 42, 16, 62]
 ];
+const STUDENT_NAME = 0
+const MATH_INDEX = 1;
+const GERMAN_INDEX = 2;
+const ENGLISH_INDEX = 3;
+const GEO_INDEX = 4;
 
 /**
  * @param {*} pNoteList 
@@ -34,6 +39,30 @@ function passBoundaryNote(pNotesList, pboundary, pIndex) {
             hardworkingStudent.push(note);
     })
     return hardworkingStudent;
+}
+/**
+ * Ortalamanin üzerinde Not alanlarin listesi
+ * @param {*} pNoteList 
+ * @param {*} pLessonIndex 
+ * @param {*} pAverageNote 
+ */
+function findOverAverageStudentList(pNoteList, pLessonIndex, pAverageNote) {
+    let overAverageStudent = [];
+    pNoteList.map(student => {
+        if (student[pLessonIndex] > pAverageNote) {
+            overAverageStudent.push(student[STUDENT_NAME] + " " + student[pLessonIndex]);
+        }
+    })
+    return overAverageStudent;
+}
+/**
+ * Ortalamanin üzerinde olan ögrencilerin listesinin konsola yazdirilmasi
+ * @param {*} pAverageNote 
+ * @param {*} pLessonName 
+ * @param {*} pOverAverageStudent 
+ */
+function renderOverAverageStudent(pAverageNote, pLessonName, pOverAverageStudent) {
+    console.log(`Ortalamasi ${pAverageNote} olan ${pLessonName} dersinden ortalamanin üzerinde not alan ögrenciler: ${pOverAverageStudent}`)
 }
 
 // Math Average
@@ -67,3 +96,20 @@ console.log(`Students with more than 70 grades in English: ${englishExpert}`)
 // Students who passed 70 in Geography
 let geographyExpert=passBoundaryNote(notes, 70, 4);
 console.log(`Students with more than 70 grades in Geography: ${geographyExpert}`)
+
+//Mathematik Dersinden Ortalamanin Üzerinde Not Alan Ögrencilerin Bulunmasi ve Konsola Yazdirilmasi
+let mathOverAverageStudentList = findOverAverageStudentList(notes, MATH_INDEX, mathAverage);
+renderOverAverageStudent(mathAverage, "Mathematik", mathOverAverageStudentList);
+
+//Almanca Dersinden Ortalamanin Üzerinde Not Alan Ögrencilerin Bulunmasi ve Konsola Yazdirilmasi
+let germanOverAverageStudentList = findOverAverageStudentList(notes, GERMAN_INDEX, germanAverage);
+renderOverAverageStudent(germanAverage, "Almanca", germanOverAverageStudentList);
+
+//Ingilizce Dersinden Ortalamanin Üzerinde Not Alan Ögrencilerin Bulunmasi ve Konsola Yazdirilmasi
+let englishOverAverageStudentList = findOverAverageStudentList(notes, ENGLISH_INDEX, englishAverage);
+renderOverAverageStudent(englishAverage, "Ingilizce", englishOverAverageStudentList);
+
+//Cografya Dersinden Ortalamanin Üzerinde Not Alan Ögrencilerin Bulunmasi ve Konsola Yazdirilmasi
+let geoOverAverageStudentList = findOverAverageStudentList(notes, GEO_INDEX, geographyAverage);
+renderOverAverageStudent(geographyAverage, "Cografya", geoOverAverageStudentList);
+
