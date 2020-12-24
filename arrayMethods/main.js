@@ -13,15 +13,15 @@ function convertToUpperCase(pPartList) {
     return upperCasePartList;
 }
 //Numbers will be subtracted from part names
-function subtractedNumbers(pPartList){
-    let subtractedNumberList=pPartList.map(part=>part.replace(/[0-9]/g, ''));
+function subtractedNumbers(pPartList) {
+    let subtractedNumberList = pPartList.map(part => part.replace(/[0-9]/g, ''));
     console.log(subtractedNumberList);
     return subtractedNumberList;
 
 }
 //conver to reverse
 function convertToReverse(pPartList) {
-    let reversePartList = pPartList.map(part =>part.split("").reverse().join(""));
+    let reversePartList = pPartList.map(part => part.split("").reverse().join(""));
     console.log(reversePartList);
     return reversePartList;
 }
