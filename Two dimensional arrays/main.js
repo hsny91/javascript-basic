@@ -1,3 +1,15 @@
+/**
+ *TWO DIMENSIONAL ARRAYS
+ *Verilen "notes" isimli arrayin her elemani bir array icerir ve bu array sirasiyla ögrenci adini, mathematik, 
+ *almanca, ingilizce ve cografya ders notlarini icermektedir. Bu cok boyutlu array kullanilarak;
+ *1.Her dersin sinif ortalamasi ayri ayri hesaplanacak,
+ *2.Herhangi bir dersden 70 puan üstü alanlarin listesi bulunacak,
+ *3.Tüm derslerden ortalamanin üstünde olanlarin listesi olusturulacak,
+ *4.Sinifin hangi dersde en iyi nota sahip oldugu gosterilecek,
+ *5.Sinifin en kötü oldugu ders gosterilecek,
+ *6.Tüm derslerin en iyi ögrencileri bulunacaktir.
+ */
+
 const notes = [
     ["Hans", 80, 90, 10, 50],
     ["Ulrich", 94, 36, 76, 74],
