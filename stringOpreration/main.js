@@ -26,15 +26,14 @@ console.log(upperFirstLetter);
 let numberList = [];
 let totalString = "";
 for (let index = 1; index <= 100; index++) {
-    numberList.push(i);
-    if (i % 10 == 0) {
+    numberList.push(index);
+    if (index % 10 == 0) {
         totalString += numberList.join(",") + "\n"; 
         numberList.length = 0;
     }
 }
 console.log(totalString);
 
-console.log(numberList.join(','));
 
 // Asal sayilari bulma
 const MAX_BOUNDARY = 100;
