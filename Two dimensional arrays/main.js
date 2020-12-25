@@ -82,7 +82,7 @@ let mathAverage=findLessonAverage(notes, MATH_INDEX);
 console.log(`Math Average: ${mathAverage}`);
 
 // German Avarage
-let germanAverage=findLessonAverage(notes, 2);
+let germanAverage=findLessonAverage(notes, GERMAN_INDEX);
 console.log(`German Average: ${germanAverage}`);
 
 //English Average
