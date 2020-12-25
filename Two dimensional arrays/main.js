@@ -78,7 +78,7 @@ function renderOverAverageStudent(pAverageNote, pLessonName, pOverAverageStudent
 }
 
 // Math Average
-let mathAverage=findLessonAverage(notes, 1);
+let mathAverage=findLessonAverage(notes, MATH_INDEX);
 console.log(`Math Average: ${mathAverage}`);
 
 // German Avarage
