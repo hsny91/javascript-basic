@@ -100,11 +100,27 @@ function findMostSuccessfulLesson(pMathAverage, pGermanAverage, pEnglishAverage,
     console.log(`Sinifin en basarili oldugu ders ${mostSuccessfulLesson}, not ortalamasi ${mostSuccessfulNote}`)
 }
 /**
- * Sinifin en basarili oldugu dersi konsola yazdiran fonksiyon
- * @param {*} pLessonName  
+ * Sinifin En Basarili Oldugu Dersi Bulan Fonksiyon
+ * @param {*} pMathAverage 
+ * @param {*} pGermanAverage 
+ * @param {*} pEnglishAverage 
+ * @param {*} pGeoAverage 
  */
-function renderMostSuccessfulLesson(pLessonName) {
-    console.log(`Sinifin en basarili oldugu ders ${pLessonName}`)
+function findLessSuccessfulLesson(pMathAverage, pGermanAverage, pEnglishAverage, pGeoAverage) {
+    let averageList = [pMathAverage, pGermanAverage, pEnglishAverage, pGeoAverage]
+    let lessSuccessfulNote = Math.min.apply(null, averageList);
+    let lessSuccessfulLesson = null
+    if (lessSuccessfulNote === pMathAverage) {
+        lessSuccessfulLesson = "Mathematik"
+    } else if (lessSuccessfulNote === pGermanAverage) {
+        lessSuccessfulLesson = "Almanca"
+    } else if (lessSuccessfulNote === pEnglishAverage) {
+        lessSuccessfulLesson = "Ingilizce"
+    } else if (lessSuccessfulNote === pGeoAverage) {
+        lessSuccessfulLesson = "Cografya"
+    }
+    console.log(`Sinifin en basarisiz oldugu ders ${lessSuccessfulLesson}, not ortalamasi ${lessSuccessfulNote} `)
+
 }
 // Math Average
 let mathAverage=findLessonAverage(notes, MATH_INDEX);
@@ -156,5 +172,8 @@ renderOverAverageStudent(geographyAverage, "Cografya", geoOverAverageStudentList
 
 //Sinifin En Basarili Oldugu Dersin Bulunmasi ve Konsola Yazdirilmasi
 findMostSuccessfulLesson(mathAverage, germanAverage, englishAverage, geographyAverage);
+
+//Sinifin En Az Basarili Oldugu Dersin Bulunmasi ve Konsola Yazdirilmasi
+findLessSuccessfulLesson(mathAverage, germanAverage, englishAverage, geographyAverage);
 
 
