@@ -90,7 +90,7 @@ let englishAverage=findLessonAverage(notes, ENGLISH_INDEX);
 console.log(`English Average: ${englishAverage}`);
 
 //Geography Average
-let geographyAverage=findLessonAverage(notes, 4);
+let geographyAverage=findLessonAverage(notes, GEO_INDEX);
 console.log(`Geography Average: ${geographyAverage}`);
 
 // Students who passed 70 in mathematics
