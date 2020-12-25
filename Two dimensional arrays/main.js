@@ -77,6 +77,35 @@ function renderOverAverageStudent(pAverageNote, pLessonName, pOverAverageStudent
     console.log(`Ortalamasi ${pAverageNote} olan ${pLessonName} dersinden ortalamanin üzerinde not alan ögrenciler: ${pOverAverageStudent}`)
 }
 
+/**
+ * Sinifin En Basarili Oldugu Dersi Bulan Fonksiyon
+ * @param {*} pMathAverage 
+ * @param {*} pGermanAverage 
+ * @param {*} pEnglishAverage 
+ * @param {*} pGeoAverage 
+ */
+function findMostSuccessfulLesson(pMathAverage, pGermanAverage, pEnglishAverage, pGeoAverage) {
+    let averageList = [pMathAverage, pGermanAverage, pEnglishAverage, pGeoAverage]
+    let mostSuccessfulNote = Math.max.apply(null, averageList);
+    let mostSuccessfulLesson = null
+    if (mostSuccessfulNote === pMathAverage) {
+        mostSuccessfulLesson = "Mathematik"
+    } else if (mostSuccessfulNote === pGermanAverage) {
+        mostSuccessfulLesson = "Almanca"
+    } else if (mostSuccessfulNote === pEnglishAverage) {
+        mostSuccessfulLesson = "Ingilizce"
+    } else if (mostSuccessfulNote === pGeoAverage) {
+        mostSuccessfulLesson = "Cografya"
+    }
+    console.log(`Sinifin en basarili oldugu ders ${mostSuccessfulLesson}, not ortalamasi ${mostSuccessfulNote}`)
+}
+/**
+ * Sinifin en basarili oldugu dersi konsola yazdiran fonksiyon
+ * @param {*} pLessonName  
+ */
+function renderMostSuccessfulLesson(pLessonName) {
+    console.log(`Sinifin en basarili oldugu ders ${pLessonName}`)
+}
 // Math Average
 let mathAverage=findLessonAverage(notes, MATH_INDEX);
 console.log(`Math Average: ${mathAverage}`);
@@ -124,4 +153,8 @@ renderOverAverageStudent(englishAverage, "Ingilizce", englishOverAverageStudentL
 //Cografya Dersinden Ortalamanin Üzerinde Not Alan Ögrencilerin Bulunmasi ve Konsola Yazdirilmasi
 let geoOverAverageStudentList = findOverAverageStudentList(notes, GEO_INDEX, geographyAverage);
 renderOverAverageStudent(geographyAverage, "Cografya", geoOverAverageStudentList);
+
+//Sinifin En Basarili Oldugu Dersin Bulunmasi ve Konsola Yazdirilmasi
+findMostSuccessfulLesson(mathAverage, germanAverage, englishAverage, geographyAverage);
+
 
