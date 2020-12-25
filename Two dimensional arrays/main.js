@@ -98,7 +98,7 @@ let mathExpert=passBoundaryNote(notes, 70, MATH_INDEX);
 console.log(`Students with more than 70 grades in Math: ${mathExpert}`)
 
 // Students who passed 70 in German
-let germanExpert=passBoundaryNote(notes, 70, 2);
+let germanExpert=passBoundaryNote(notes, 70, GERMAN_INDEX);
 console.log(`Students with more than 70 grades in German: ${germanExpert}`)
 
 // Students who passed 70 in English
