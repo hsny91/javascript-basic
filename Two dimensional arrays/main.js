@@ -106,7 +106,7 @@ let englishExpert=passBoundaryNote(notes, 70, ENGLISH_INDEX);
 console.log(`Students with more than 70 grades in English: ${englishExpert}`)
 
 // Students who passed 70 in Geography
-let geographyExpert=passBoundaryNote(notes, 70, 4);
+let geographyExpert=passBoundaryNote(notes, 70, GEO_INDEX);
 console.log(`Students with more than 70 grades in Geography: ${geographyExpert}`)
 
 //Mathematik Dersinden Ortalamanin Üzerinde Not Alan Ögrencilerin Bulunmasi ve Konsola Yazdirilmasi
