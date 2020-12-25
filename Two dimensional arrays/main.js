@@ -86,7 +86,7 @@ let germanAverage=findLessonAverage(notes, GERMAN_INDEX);
 console.log(`German Average: ${germanAverage}`);
 
 //English Average
-let englishAverage=findLessonAverage(notes, 3);
+let englishAverage=findLessonAverage(notes, ENGLISH_INDEX);
 console.log(`English Average: ${englishAverage}`);
 
 //Geography Average
