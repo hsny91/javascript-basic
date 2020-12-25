@@ -94,7 +94,7 @@ let geographyAverage=findLessonAverage(notes, 4);
 console.log(`Geography Average: ${geographyAverage}`);
 
 // Students who passed 70 in mathematics
-let mathExpert=passBoundaryNote(notes, 70, 1);
+let mathExpert=passBoundaryNote(notes, 70, MATH_INDEX);
 console.log(`Students with more than 70 grades in Math: ${mathExpert}`)
 
 // Students who passed 70 in German
