@@ -7,7 +7,13 @@
  */
 let partList=["Radyatör23", "Sanziman34", "Filtre3", "Direksiyon5", "Kaporta2", "ayna09"];
 
+/**
+ * convert to array element to upperCase 
+ * @param {*} pPartList 
+ */
 function convertToUpperCase(pPartList){
 let upperCasePartList=pPartList.map(part=>part.toUpperCase())
 return upperCasePartList
 }
+convertToUpperCase(partList);
+console.log(convertToUpperCase(partList));
