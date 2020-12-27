@@ -19,7 +19,13 @@ function throwNumber(pPartList){
     let throwNumberList=pPartList.map(part=>part.replace(/[0-9]/g,""))
     return throwNumberList;
 }
+function reverseList(pPartList){
+    let reverseList=pPartList.map(part=>part.split("").reverse().join(""))
+    return reverseList;
+}
+
 let upperCasePartList=convertToUpperCase(partList);
 let throwNumberList=throwNumber(upperCasePartList);
+let reverseList=reverseList(throwNumberList);
 
-console.log(throwNumber(upperCasePartList));
+console.log(reverseList(throwNumberList));
