@@ -6,3 +6,8 @@
 5. Her parcanin sonuna ise parcanin sisteme girildigi tarih eklenecektir. (Date nesnesini kullanarak tarih ve saat konulmasi yeterlidi
  */
 let partList=["Radyatör23", "Sanziman34", "Filtre3", "Direksiyon5", "Kaporta2", "ayna09"];
+
+function convertToUpperCase(pPartList){
+let upperCasePartList=pPartList.map(part=>part.toUpperCase())
+return upperCasePartList
+}
