@@ -44,7 +44,7 @@ function addName(pPartList){
 
 let upperCasePartList=convertToUpperCase(partList);
 let throwNumberList=throwNumber(upperCasePartList);
-let reverseList=reverseList(throwNumberList);
-let addNammeList=addName(addNammeList);
+let reversePartList=reverseList(throwNumberList);
+let addNammeList=addName(reversePartList);
 
-console.log(reverseList(throwNumberList));
+console.log(addNammeList);
