@@ -13,7 +13,13 @@ let partList=["Radyatör23", "Sanziman34", "Filtre3", "Direksiyon5", "Kaporta2",
  */
 function convertToUpperCase(pPartList){
 let upperCasePartList=pPartList.map(part=>part.toUpperCase())
-return upperCasePartList
+return upperCasePartList;
 }
-convertToUpperCase(partList);
-console.log(convertToUpperCase(partList));
+function throwNumber(pPartList){
+    let throwNumberList=pPartList.map(part=>part.replace(/[0-9]/g,""))
+    return throwNumberList;
+}
+let upperCasePartList=convertToUpperCase(partList);
+let throwNumberList=throwNumber(upperCasePartList);
+
+console.log(throwNumber(upperCasePartList));
