@@ -125,5 +125,4 @@ const fishFarm = [
     },  
 ]
 
-let daydata=fishFarm.map((fish)=>fish.entryDate.setDate(fish.entryDate.getDate()+fish.durationInDays))
-console.log(daydata)
+

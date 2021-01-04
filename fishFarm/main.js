@@ -123,14 +123,25 @@ let findFishPrice=(fish)=>(9<fish.price && fish.price>12);
 /**
  * 4.
  */
-setDate=()=>{
-    let newList=[]
-    fishFarm.map(day=>{
-       day.entryDate.setDate(day.entryDate.getDate()+day.durationInDays)
-        newList.push(day.entryDate)
-    })
-  console.log(newList)
-}
+function sortLastUseDate() {
+    let newList = [];
+    fishFarm.map((day) => {
+      day.entryDate.setDate(day.entryDate.getDate() + day.durationInDays);
+      let lastUseDate = new Date(day.entryDate);
+      newList.push({date:lastUseDate , name:day.fishType});
+    });
+   
+    return newList;
+  }
+  
+  let newListToSort = sortLastUseDate().sort(function (a, b) {
+    return a.date.getTime() - b.date.getTime();
+  
+  });
+  
+
+  
+  console.log(newListToSort);
 
 
 let overStockFish=fishFarm.filter(findOverStockFish);
