@@ -110,7 +110,18 @@ const fishFarm = [
         saleLocations: ["ZH", "VD", "BS", "TI", "SG"],
     },  
 ]
-let overStockFish=(fish)=>(fish.stockVolumeInKg>=500);
-let overStockFishs=fishFarm.filter(overStockFish);
+/**
+ * 1.
+ * @param {*} fish 
+ */
+let findOverStockFish=(fish)=>(fish.stockVolumeInKg>=500);
+/**
+ * 2.
+ * @param {*} fish 
+ */
+let findFishPrice=(fish)=>(9<fish.price && fish.price>12);
+
+let overStockFish=fishFarm.filter(findOverStockFish);
+let FishPrice=fishFarm.filter(findFishPrice)
   
-    console.log(overStockFishs)
+    console.log(FishPrice)
