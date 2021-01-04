@@ -123,12 +123,15 @@ let findFishPrice=(fish)=>(9<fish.price && fish.price>12);
 /**
  * 4.
  */
-let newList=[]
-  fishFarm.map(day=>{
-      day.entryDate.setDate(day.entryDate.getDate()+day.durationInDays)
-      newList.push(day.entryDate)
-  })
-console.log(newList)
+setDate=()=>{
+    let newList=[]
+    fishFarm.map(day=>{
+        day.entryDate.setDate(day.entryDate.getDate()+day.durationInDays)
+        newList.push(day.entryDate)
+    })
+  console.log(newList)
+}
+
 
 let overStockFish=fishFarm.filter(findOverStockFish);
 let FishPrice=fishFarm.filter(findFishPrice)
