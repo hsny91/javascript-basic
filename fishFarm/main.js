@@ -110,14 +110,7 @@ const fishFarm = [
         saleLocations: ["ZH", "VD", "BS", "TI", "SG"],
     },  
 ]
-let overStockFish=(pFishFarmList)=>{
-    let OverStockList=[];
-    pFishFarmList.filter((fish)=>{
-        if(fish.stockVolumeInKg>500)
-        OverStockList.push(fish);
-    })
-    return OverStockList;
-    }
-
-
-    console.log(overStockFish(fishFarm)[0].fishType);
+let overStockFish=(fish)=>(fish.stockVolumeInKg>=500);
+let overStockFishs=fishFarm.filter(overStockFish);
+  
+    console.log(overStockFishs)
