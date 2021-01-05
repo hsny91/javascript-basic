@@ -150,7 +150,7 @@ function sortLastUseDate() {
   
   console.log(newListToSort);
 /**
- * 5.Toplam balik stogu
+ * 6.Toplam balik stogu
  * @param {*} a 
  * @param {*} b 
  */
