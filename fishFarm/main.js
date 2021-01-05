@@ -156,7 +156,10 @@ function sortLastUseDate() {
  */
   let findTotalStock=(a,b)=>({stockVolumeInKg:a.stockVolumeInKg+b.stockVolumeInKg})
   let totalFishStock=fishFarm.reduce(findTotalStock);
-
+/**
+ * 
+ * @param {*} fish 
+ */
   let findHighPriceFish=(fish)=>(fish.price)
   let maxPriceFish=Math.max.apply(Math, fishFarm.map(findHighPriceFish));
 
