@@ -111,17 +111,17 @@ const fishFarm = [
     },  
 ]
 /**
- * 1.
+ * 1.Stok miktari 500 kg uzerinde olan baliklar
  * @param {*} fish 
  */
 let findOverStockFish=(fish)=>(fish.stockVolumeInKg>=500);
 /**
- * 2.
+ * 2.Fiyat araligi 9Fr. ile 12 Fr. arasindaki baliklar 
  * @param {*} fish 
  */
 let findFishPrice=(fish)=>(9<fish.price && fish.price>12);
 /**
- * 
+ * 3.Sadece Bern'de ve kis sezonu satilan baliklar 
  * @param {*} fish 
  */
 let findFishInBern=(fish)=>(fish.season=="Winter"&& fish.saleLocations.includes("BE"));
@@ -133,10 +133,9 @@ let findFishInBern=(fish)=>(fish.season=="Winter"&& fish.saleLocations.includes(
  */
 function sortLastUseDate() {
     let newList = [];
-    fishFarm.map((day) => {
-      day.entryDate.setDate(day.entryDate.getDate() + day.durationInDays);
-      let lastUseDate = new Date(day.entryDate);
-      newList.push({date:lastUseDate , name:day.fishType});
+    fishFarm.map((fish) => {
+      fish.entryDate.setDate(fish.entryDate.getDate() + fish.durationInDays);
+      newList.push({date:fish.entryDate , name:fish.fishType});
     });
     return newList;
   }
