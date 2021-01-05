@@ -121,6 +121,14 @@ let findOverStockFish=(fish)=>(fish.stockVolumeInKg>=500);
  */
 let findFishPrice=(fish)=>(9<fish.price && fish.price>12);
 /**
+ * 
+ * @param {*} fish 
+ */
+let findFishInBern=(fish)=>(fish.season=="Winter"&& fish.saleLocations.includes("BE"));
+
+
+
+/**
  * 4.
  */
 function sortLastUseDate() {
@@ -130,7 +138,6 @@ function sortLastUseDate() {
       let lastUseDate = new Date(day.entryDate);
       newList.push({date:lastUseDate , name:day.fishType});
     });
-   
     return newList;
   }
   
@@ -140,11 +147,12 @@ function sortLastUseDate() {
   });
   
 
-  
+
   console.log(newListToSort);
 
 
 let overStockFish=fishFarm.filter(findOverStockFish);
-let FishPrice=fishFarm.filter(findFishPrice)
+let FishPrice=fishFarm.filter(findFishPrice);
+let fishInBern=fishFarm.filter(findFishInBern)
   
-    console.log(FishPrice)
+   

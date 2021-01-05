@@ -124,5 +124,9 @@ const fishFarm = [
         saleLocations: ["ZH", "VD", "BS", "TI", "SG"],
     },  
 ]
+ 
 
 
+
+
+console.log(FishPrice)
