@@ -127,13 +127,12 @@ const fishFarm = [
  
 
 // En pahali olan balik hangisidir? 
-let findFishInBern=(fish)=>(fish.season=="Winter"&& fish.saleLocations.includes("BE"));
-let fishInBern=fishFarm.filter(findFishInBern)
+
 
 let findHighPriceFish=(fish)=>(fish.price)
 let maxPriceFish=Math.max.apply(Math, fishFarm.map(findHighPriceFish));
 
 
-console.log(maxPriceFish)
 
-//var maximum = Math.max.apply(Math, myArr.map(o => o.x));
+console.log(max)
+

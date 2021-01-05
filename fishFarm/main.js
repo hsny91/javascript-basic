@@ -157,11 +157,12 @@ function sortLastUseDate() {
   let findTotalStock=(a,b)=>({stockVolumeInKg:a.stockVolumeInKg+b.stockVolumeInKg})
   let totalFishStock=fishFarm.reduce(findTotalStock);
 /**
- * 
+ * 7.En pahali olan balik 
  * @param {*} fish 
  */
-  let findHighPriceFish=(fish)=>(fish.price)
-  let maxPriceFish=Math.max.apply(Math, fishFarm.map(findHighPriceFish));
+  let findHighPrice=(fish)=>(fish.price)
+  let maxPrice=Math.max.apply(Math, fishFarm.map(findHighPrice));
+  let maxPriceFish=fishFarm.filter(fish=>fish.price==maxPrice)
 
 
 
