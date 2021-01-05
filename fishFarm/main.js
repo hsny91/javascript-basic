@@ -115,21 +115,24 @@ const fishFarm = [
  * @param {*} fish 
  */
 let findOverStockFish=(fish)=>(fish.stockVolumeInKg>=500);
+let overStockFish=fishFarm.filter(findOverStockFish);
+
 /**
  * 2.Fiyat araligi 9Fr. ile 12 Fr. arasindaki baliklar 
  * @param {*} fish 
  */
 let findFishPrice=(fish)=>(9<fish.price && fish.price>12);
+let FishPrice=fishFarm.filter(findFishPrice);
+
 /**
  * 3.Sadece Bern'de ve kis sezonu satilan baliklar 
  * @param {*} fish 
  */
 let findFishInBern=(fish)=>(fish.season=="Winter"&& fish.saleLocations.includes("BE"));
-
-
+let fishInBern=fishFarm.filter(findFishInBern)
 
 /**
- * 4.
+ * 4.Son kullanma tarihlerine gore baliklari siralayiniz
  */
 function sortLastUseDate() {
     let newList = [];
@@ -145,13 +148,19 @@ function sortLastUseDate() {
   
   });
   
-
-
   console.log(newListToSort);
+/**
+ * 5.Toplam balik stogu
+ * @param {*} a 
+ * @param {*} b 
+ */
+  let findTotalStock=(a,b)=>({stockVolumeInKg:a.stockVolumeInKg+b.stockVolumeInKg})
+  let totalFishStock=fishFarm.reduce(findTotalStock);
 
 
-let overStockFish=fishFarm.filter(findOverStockFish);
-let FishPrice=fishFarm.filter(findFishPrice);
-let fishInBern=fishFarm.filter(findFishInBern)
+
+
+
+
   
    

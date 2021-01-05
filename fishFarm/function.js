@@ -128,5 +128,11 @@ const fishFarm = [
 
 
 
+  //Toplam balik stoku ne kadardir?
 
-console.log(FishPrice)
+  let findOverStockFish=(fish)=>(fish.stockVolumeInKg>=500);
+  let overStockFish=fishFarm.filter(findOverStockFish);
+
+
+  
+  console.log(totalFishStock)
