@@ -149,6 +149,24 @@ function sortLastUseDate() {
   });
   
   console.log(newListToSort);
+
+  /**
+ * 5.Avrupali baliklari bulur
+ * @param {*} pFarmList 
+ * @param {*} pCountryList 
+ */
+function findEuropeanFish(pFarmList, pCountryList, pPrice) {
+    let europeanFish = [];
+    pFarmList.filter(fish => {
+      for (let index = 0; index < pCountryList.length; index++) {
+        const country = pCountryList[index].toLowerCase();
+        if (fish.originCountry.toLowerCase() === country && fish.price < pPrice) {
+          europeanFish.push(fish.fishType)
+        }
+      }
+    })
+    return europeanFish;
+  }
 /**
  * 6.Toplam balik stogu
  * @param {*} a 
