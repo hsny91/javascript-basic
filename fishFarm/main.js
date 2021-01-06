@@ -167,7 +167,7 @@ function findEuropeanFish(pFarmList, pCountryList, pPrice) {
     })
     return europeanFish;
   }
-  /**************SORU-5******************/
+ 
 let europeanFish = findEuropeanFish(fishFarm, europeanCountry, 10)
 let sortedAlphabeticalList = sortAlphabeticalList(europeanFish)
 console.log(`AB kaynakli 10 CHF'den daha ucuz ve alfabetik olarak siralanmis baliklar: ${sortedAlphabeticalList}`)
