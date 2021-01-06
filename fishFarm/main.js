@@ -110,6 +110,35 @@ const fishFarm = [
         saleLocations: ["ZH", "VD", "BS", "TI", "SG"],
     },  
 ]
+const europeanCountry = [
+    "Austria",
+    "Italy",
+    "Belgium",
+    "Latvia",
+    "Bulgaria",
+    "Lithuania",
+    "Croatia",
+    "Luxembourg",
+    "Cyprus",
+    "Malta",
+    "Czechia",
+    "Netherlands",
+    "Denmark",
+    "Poland",
+    "Estonia",
+    "Portugal",
+    "Finland",
+    "Romania",
+    "France",
+    "Slovakia",
+    "Germany",
+    "Slovenia",
+    "Greece",
+    "Spain",
+    "Hungary",
+    "Sweden",
+    "Ireland",
+  ];
 /**
  * 1.Stok miktari 500 kg uzerinde olan baliklar
  * @param {*} fish 
