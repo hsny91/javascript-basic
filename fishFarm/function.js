@@ -134,5 +134,5 @@ let maxPriceFish=Math.max.apply(Math, fishFarm.map(findHighPriceFish));
 
 
 
-console.log(max)
+
 
