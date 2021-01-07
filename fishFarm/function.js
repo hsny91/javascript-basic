@@ -126,11 +126,6 @@ const fishFarm = [
 ]
  
 
-// En pahali olan balik hangisidir? 
-
-
-let findHighPriceFish=(fish)=>(fish.price)
-let maxPriceFish=Math.max.apply(Math, fishFarm.map(findHighPriceFish));
 
 
 
