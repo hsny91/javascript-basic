@@ -128,6 +128,7 @@ const fishFarm = [
 
 
 
-
+///En uzun sureli durabilen baliklar hangi ulkeden gelmektedir?
+let findHighPrice=(fish)=>(fish.price)
 
 
