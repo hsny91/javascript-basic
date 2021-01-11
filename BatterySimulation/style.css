@@ -1,6 +1,31 @@
-.table {
-    border-radius: 5px;
-    width: 50%;
-    margin: 0px auto;
-    float: none;
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+}
+#battery{
+    margin-bottom: 5vh;
+    width: 20vw;
+}
+.battery-head{
+    background-color: #b1b4b4;
+    width: 5vw;
+    height: 5vh;
+}
+.item-battery{
+    height: 13vh;
+}
+.btn-container{
+    display:flex;
+justify-content: center;
+align-self: center;
+    width: 2vh;
+}
+.counter-row{
+    margin-bottom: 5vh;
+}
+.counter-item{
+    height: 4vh;
+    width: 4vw;
 }
