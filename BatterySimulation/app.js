@@ -7,7 +7,7 @@ const highestRow = document.querySelector("#highest-row")
 
 
 
-let counter = 0;
+
 
 counterPlus.addEventListener("click", (e) => {
     controlCounterIncrease();
