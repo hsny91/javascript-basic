@@ -7,7 +7,7 @@ let firstProductList = [
   ];
 
   let product=document.querySelector("#product-list")
-   function showProductList(pList){
+   function showProductList(pList, pBuyDelete){
     let productList=`<table class="table">
                      <tr>
                      <th>Name</th>
@@ -21,14 +21,24 @@ let firstProductList = [
                       <td>${product.calori}</td>
                       <td>${product.expDate}</td>
                       <td>${product.price} Fr</td>
-                      <td><button class="button" >Buy</button></td>
-                      </tr> ` 
-                                 
+                      <td><button id=${product.name} class="button"> ${pBuyDelete} </button></td>
+                      </tr> `                              
      })
      productList+=`</table>`
-     console.log(productList)
      return productList
-     
-
+    
    }
-   product.innerHTML=showProductList(firstProductList);
+   product.innerHTML=showProductList(firstProductList, "Buy");
+
+
+   firstProductList.map((product)=>{
+    document.querySelector(`#${product.name}`).addEventListener("click", (e)=>{
+        console.log(e.target)
+        pushFunction()
+    });
+   })
+
+
+   function pushFunction(){
+       alert("oldu")
+   }
