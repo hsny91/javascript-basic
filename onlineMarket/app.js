@@ -97,6 +97,8 @@ product.innerHTML = showProductList(firstProductList);
 firstProductList.map((product) => {
     document.querySelector(`#${product.productName}`).addEventListener("click", (e) => {
         pushFunction(e)
+       
+        
     });
 })
 
@@ -108,15 +110,19 @@ function pushFunction(item) {
                 "productName": product.productName,
                 "price": product.price,
                 "piece": product.price,
-                "productImage": product.productImage
+                "productImage": product.productImage,
+                "productId":product.productName+product.productName
             })
-
+            
         }
+        shopping.innerHTML = showShoppList(shoppingBasketList);
+        createDeleteButton(shoppingBasketList)
+        
     })
-
-    shopping.innerHTML = showShoppList(shoppingBasketList)
-
+    
+   
 }
+
 
 function showShoppList(pList) {
 
@@ -130,7 +136,7 @@ function showShoppList(pList) {
                    <td>${product.productName}</td> 
                    <td>${product.price} Fr</td>
                    <td><img src=${product.productImage} width="30px"></img> Fr</td>
-                   <td><button id=${product.price} class="button"> Delete </button></td>
+                   <td><button id=${product.productId} class="button"> Delete </button></td>
                     </tr> `
 
     })
@@ -140,8 +146,19 @@ function showShoppList(pList) {
 
 }
 
-shoppingBasketList.map((product) => {
-    document.querySelector(`#${product.price}`).addEventListener("click", (e) => {
-        alert("deneme")
-    });
-})
+  
+  
+function createDeleteButton(pList){
+    pList.map((product) => {
+        document.querySelector(`#${product.productId}`).addEventListener("click", (e) => {
+            deleteProduct(pList,e);
+        });
+    })
+
+}
+ function deleteProduct(pList,item){
+    if (item.target.id == product.productId){
+       product="";
+    }
+    showShoppList(pList);
+ }
