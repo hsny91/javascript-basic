@@ -63,7 +63,7 @@
         totalCalories: 250
     }
 ]
-
+let shoppingBasketList=[];
   let product=document.querySelector("#product-list");
   let  shopping=document.querySelector("#shopping-basket");
   
@@ -98,6 +98,7 @@
 
    firstProductList.map((product)=>{
     document.querySelector(`#${product.productName}`).addEventListener("click", (e)=>{
+        
         pushFunction(e)
     });
    })
@@ -105,29 +106,32 @@
 
    function pushFunction(item){
     firstProductList.map((product)=>{
-       if(item.target.id==product.productName)
-       product.price+=product.price
-        
+        let piece=0;
+       if(item.target.id==product.productName){
+           piece ++;
+           shoppingBasketList.push({"productName":product.productName,
+                                    "price":product.price ,
+                                    "piece":piece*product.price,
+                                    "productImage":product.productImage
+                                })
+      
+    }  
    })
-   shopping.innerHTML=showShoppList(firstProductList,item.target.id) 
+   shopping.innerHTML=showShoppList(shoppingBasketList) 
    
 }
 
-function showShoppList(pList,pId){
+function showShoppList(pList){
     
  let productList=`<table class="table">
                   <tr>
                   <th>Name</th>
-                  <th> Calori</th>
-                  <th>Exp Date</th>
-                  <th>Price</th>
+                  <th> Price</th>
                   </tr>`
  pList.map((product)=>{
-    if (product.productName==pId) {
+    if (product.piece!==0) {
      productList+=`<tr>
                    <td>${product.productName}</td> 
-                   <td>${product.totalCalories}</td>
-                   <td>${product.expireDate}</td>
                    <td>${product.price} Fr</td>
                    <td><img src=${product.productImage} width="30px"></img> Fr</td>
                    <td><button id=${product.productName} class="button"> Delete </button></td>
