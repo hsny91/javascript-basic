@@ -123,6 +123,7 @@ productList.map(product => {
 document.querySelector(`#${product.productName}`).addEventListener("click", (event) => {
     createShoppingList(event);
     shoppingElement.innerHTML = createShoppingBox(shoppingList);
+    deneme();
 })
 })
 
@@ -134,6 +135,7 @@ productList.filter(product => {
 })
 return shoppingList
 }
+
 
 function createShoppingBox(pShopList) {
 let totalPrice = 0;
@@ -159,7 +161,7 @@ pShopList.map(product => {
         <td>${product.totalCalories}</td>
         <td>${product.price}</td>
         <td><img src="${product.productImage}" width=50px></img></td>
-        <td><button type="button" class="btn btn-secondary">Delete</button></td>
+        <td><button  type="button" class="delete">Delete</button></td>
     </tr>`
 })
 shoppingTable +=
@@ -170,4 +172,11 @@ shoppingTable +=
     </tbody>
     </table>`
 return shoppingTable
+}
+function deneme(){
+    shoppingList.map(product => {
+        document.querySelector(".delete").addEventListener("click", (event) => {
+           alert(event.target.productName)
+        })
+        })
 }
