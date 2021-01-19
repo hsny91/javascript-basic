@@ -103,7 +103,7 @@ function createProductList(pList) {
         <td>${product.expireDate}</td>
         <td>${product.price}</td>
         <td><img src="${product.productImage}" width=40px></img></td>
-        <td><button id="${product.productName}" type="button" class="btn btn-secondary">Buy</button></td>
+        <td><button id="${product.productName}" type="button" class="btn btn-secondary buy">Buy</button></td>
       </tr>`
     })
     productTable +=
@@ -136,7 +136,7 @@ function createShoppingBox(pShopList) {
           <td>${product.totalCalories}</td>
           <td>${product.price}</td>
           <td><img src="${product.productImage}" width=50px></img></td>
-          <td><button id="${product.productName}" type="button" class="delete">Delete</button></td>
+          <td><button id="${product.productName}" type="button" class="delete btn btn-secondary">Delete</button></td>
       </tr>`
     })
     shoppingTable +=
@@ -162,7 +162,14 @@ function createShoppingList(event) {
     })
     return shoppingList
 }
-
+function deleteProduct(){
+    shoppingList.map((product, index) => {
+        if (product.productName === event.target.id) {
+            let itemIndex = shoppingList.indexOf(product)
+            shoppingList.splice(itemIndex, 1);
+        }
+    })
+ }
 
 function addProductEvent() {
         document.querySelector(".product-list").addEventListener("click", (event) => {
@@ -174,22 +181,13 @@ function addProductEvent() {
 
 function deleteProductEvent() {
     document.querySelector(".shopping-box").addEventListener("click", (event) => {
-        if (event.target.className == 'delete') {
+        if (event.target.className == 'delete btn btn-secondary') {
             deleteProduct();
-        }
-
-
-    })
-}
- function deleteProduct(){
-    shoppingList.map((product, index) => {
-        if (product.productName === event.target.id) {
-            let itemIndex = shoppingList.indexOf(product)
-            shoppingList.splice(itemIndex, 1);
             shoppingElement.innerHTML = createShoppingBox(shoppingList)
         }
     })
- }
+}
+
 
 start = () => {
     createUI(productList);
