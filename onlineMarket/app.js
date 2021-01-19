@@ -64,7 +64,7 @@ const productList = [{
 ]
 
 const headerElement = document.querySelector("#nav-header");
-const productElement = document.querySelector("#product-list");
+const productElement = document.querySelector(".product-list");
 const shoppingElement = document.querySelector(".shopping-box");
 let shoppingList = []
 
@@ -165,32 +165,31 @@ function createShoppingList(event) {
 
 
 function addProductEvent() {
-    productList.map(product => {
-        document.querySelector(`#${product.productName}`).addEventListener("click", (event) => {
+        document.querySelector(".product-list").addEventListener("click", (event) => {
             createShoppingList(event);
             shoppingElement.innerHTML = createShoppingBox(shoppingList);
 
-        })
     })
 }
 
 function deleteProductEvent() {
     document.querySelector(".shopping-box").addEventListener("click", (event) => {
         if (event.target.className == 'delete') {
-            shoppingList.map((product, index) => {
-                if (product.productName === event.target.id) {
-                    let itemIndex = shoppingList.indexOf(product)
-                    shoppingList.splice(itemIndex, 1);
-                    shoppingElement.innerHTML = createShoppingBox(shoppingList)
-                }
-
-            })
+            deleteProduct();
         }
 
 
     })
 }
-
+ function deleteProduct(){
+    shoppingList.map((product, index) => {
+        if (product.productName === event.target.id) {
+            let itemIndex = shoppingList.indexOf(product)
+            shoppingList.splice(itemIndex, 1);
+            shoppingElement.innerHTML = createShoppingBox(shoppingList)
+        }
+    })
+ }
 
 start = () => {
     createUI(productList);
