@@ -69,6 +69,7 @@ const shoppingElement = document.querySelector(".shopping-box");
 let shoppingList = []
 
 
+
 function createHeader() {
     return `
   <nav class="navbar navbar-dark bg-dark">
@@ -121,7 +122,7 @@ function createShoppingBox(pShopList) {
       <thead>
           <tr>
               <th scope="col">Name</th>
-              <th scope="col">Calori</th>
+              <th scope="col">Piece</th>
               <th scope="col">Price</th>
               <th scope="col">Product</th>
               <th scope="col"></th>
@@ -133,7 +134,7 @@ function createShoppingBox(pShopList) {
         shoppingTable +=
             `<tr>
           <td><strong>${product.productName}<strong></td>
-          <td>${product.totalCalories}</td>
+          <td>${product.piece}</td>
           <td>${product.price}</td>
           <td><img src="${product.productImage}" width=50px></img></td>
           <td><button id="${product.productName}" type="button" class="delete btn btn-secondary">Delete</button></td>
@@ -155,26 +156,39 @@ function createUI(pList) {
 }
 
 function createShoppingList(event) {
+    
     productList.filter(product => {
+        let piece = 0;
         if (event.target.id === product.productName) {
-            shoppingList.push(product);
+            
+            if (piece == 0) {
+                piece++
+                shoppingList.push({
+                    productName: product.productName,
+                    price: piece*product.price,
+                    productImage: product.productImage,
+                    piece: piece
+                });
+            }
         }
     })
     return shoppingList
 }
-function deleteProduct(){
+
+function deleteProduct(event) {
     shoppingList.map((product, index) => {
         if (product.productName === event.target.id) {
             let itemIndex = shoppingList.indexOf(product)
             shoppingList.splice(itemIndex, 1);
         }
     })
- }
+}
 
 function addProductEvent() {
-        document.querySelector(".product-list").addEventListener("click", (event) => {
-            createShoppingList(event);
-            shoppingElement.innerHTML = createShoppingBox(shoppingList);
+    document.querySelector(".product-list").addEventListener("click", (event) => {
+     
+        createShoppingList(event);
+        shoppingElement.innerHTML = createShoppingBox(shoppingList);
 
     })
 }
@@ -182,7 +196,7 @@ function addProductEvent() {
 function deleteProductEvent() {
     document.querySelector(".shopping-box").addEventListener("click", (event) => {
         if (event.target.className == 'delete btn btn-secondary') {
-            deleteProduct();
+            deleteProduct(event);
             shoppingElement.innerHTML = createShoppingBox(shoppingList)
         }
     })
@@ -195,3 +209,21 @@ start = () => {
     deleteProductEvent();
 }
 start();
+
+
+
+// function createShoppingList(event) {
+//     productList.filter(product => {
+//         if (event.target.id === product.productName) {
+//             if(shoppingList.includes(product)==false){
+//                 shoppingList.push(product);
+//             }
+//             else{
+//                 let deneme=product;
+//                 shoppingList(deneme)
+//             }
+
+//         }
+//     })
+//     return shoppingList
+//}

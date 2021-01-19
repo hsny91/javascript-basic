@@ -1,10 +1,10 @@
-#product-list{
+.product-list{
     border-radius: 5px;
     box-shadow: 2px 5px 5px;
     background-color:whitesmoke;
     margin-right: 20px;
 }
-#shopping-box{
+.shopping-box{
     border-radius: 5px;
     box-shadow: 2px 5px 5px;
     background-color:whitesmoke
@@ -12,5 +12,12 @@
 
 body {
     background: linear-gradient(to right, #4b4d50, #e6f0ef);
-  
+}
+.navbar-brand{
+    padding: 2vw
+}
+
+h2{
+    text-align: center;
+    
 }
