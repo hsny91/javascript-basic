@@ -138,10 +138,7 @@ function viewEmptyShoppingBox() {
     }
 }
 
-/**Data Model */
-/**
- * Alisveris sepetine ürün ekler
- */
+
 function addProduct() {
     viewEmptyShoppingBox()
     productElement.addEventListener("click", (event) => {
@@ -151,9 +148,7 @@ function addProduct() {
         }
     })
 }
-/**
- * Silinen ürünü DOM'dan kaldirir
- */
+
 function deleteProductEvent() {
     shoppingElement.addEventListener("click", (event) => {
         if (event.target.className === "delete btn btn-secondary") {
