@@ -1,7 +1,4 @@
-/*Wiev*/
-/**
- * Header elemanini olusturur
- */
+
 function createHeader() {
     return `
   <nav class="navbar navbar-dark bg-dark">
@@ -11,10 +8,7 @@ function createHeader() {
     </a>
   </nav>`
 }
-/**
- * Ürün listesini olusturur.
- * @param {Array} pList 
- */
+
 function createProductList(pList) {
     let productTable = " "
     productTable = `
@@ -47,10 +41,7 @@ function createProductList(pList) {
                   </table>`
     return productTable
 }
-/**
- * Alisveris Sepetini Olusturur
- * @param {Array} pShopList 
- */
+
 function showShoppingBox(pShopList) {
     let totalPrice = 0;
     let shoppingTable = " "
@@ -94,19 +85,12 @@ function createEmptyShoppingSide() {
     <div><img src="https://www.libresensor.com/Content/Icons/icon-basket.png"></img></div>
     </section>  `
 }
-/**
- * Ana yapiyi UI'da görüntüler
- * @param {Array} pList 
- */
+
 function createUI(pList) {
     headerElement.innerHTML = createHeader();
     productElement.innerHTML = createProductList(pList);
 }
-/**Functions */
-/**
- * Alisveris Listesi Arrayini Olusturur
- * @param {*} event 
- */
+
 function createShoppingList(event) {
     productList.filter(product => {
         if (event.target.id === product.productName) {
@@ -115,10 +99,7 @@ function createShoppingList(event) {
     })
     return shoppingList
 }
-/**
- * Ürün silme islemini yapar 
- * @param {*} event 
- */
+
 function deleteProduct(event) {
     shoppingList.map((product, index) => {
         if (event.target.id === `delete-${index}`) {
@@ -129,9 +110,7 @@ function deleteProduct(event) {
         }
     })
 }
-/**
- * Bos sepeti görüntüler
- */
+
 function viewEmptyShoppingBox() {
     if (shoppingList.length === 0) {
         shoppingElement.innerHTML = createEmptyShoppingSide()
