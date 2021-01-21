@@ -67,7 +67,6 @@ const headerElement = document.querySelector("#nav-header");
 const productElement = document.querySelector(".product-list");
 let shoppingElement = document.querySelector(".shopping-box");
 
-
 let shoppingList = []
 
 start()
