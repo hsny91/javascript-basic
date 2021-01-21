@@ -111,11 +111,7 @@ function deleteProduct(event) {
     })
 }
 
-function viewEmptyShoppingBox() {
-    if (shoppingList.length === 0) {
-        shoppingElement.innerHTML = createEmptyShoppingSide()
-    }
-}
+
 
 
 function addProduct() {
