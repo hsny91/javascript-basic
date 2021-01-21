@@ -106,7 +106,7 @@ function deleteProduct(event) {
             const productIndex = shoppingList.indexOf(product);
             shoppingList.splice(productIndex, 1);
             shoppingElement.innerHTML = showShoppingBox(shoppingList);
-            viewEmptyShoppingBox()
+           
         }
     })
 }
