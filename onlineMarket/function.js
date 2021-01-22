@@ -78,7 +78,7 @@ function showShoppingBox(pShopList) {
     </table>`
     return shoppingTable
 }
-function createEmptyShoppingSide() {
+ createEmptyShoppingSide=()=> {
     return `
     <section id="empty-box">
     <p>Sepetiniz Bos</p>
