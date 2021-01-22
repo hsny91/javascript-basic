@@ -129,7 +129,7 @@ deleteProductEvent=()=> {
     })
 }
 
-function start() {
+ start=()=> {
     createUI(productList);
     addProduct();
     deleteProductEvent();
