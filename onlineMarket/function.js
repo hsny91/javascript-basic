@@ -112,7 +112,7 @@ function deleteProduct(event) {
 }
 
 
-function addProduct() {
+ addProduct=()=> {
     productElement.addEventListener("click", (event) => {
         if (event.target.className === "add btn btn-secondary"){
             createShoppingList(event)
