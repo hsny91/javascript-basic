@@ -100,7 +100,7 @@ function createShoppingList(event) {
     return shoppingList
 }
 
-function deleteProduct(event) {
+ deleteProduct=(event)=> {
     shoppingList.map((product, index) => {
         if (event.target.id === `delete-${index}`) {
             const productIndex = shoppingList.indexOf(product);
