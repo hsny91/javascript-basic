@@ -9,7 +9,7 @@ function createHeader() {
   </nav>`
 }
 
-function createProductList(pList) {
+ createProductList=(pList)=> {
     let productTable = " "
     productTable = `
   <h2>Product List</h2>
@@ -42,7 +42,7 @@ function createProductList(pList) {
     return productTable
 }
 
-function showShoppingBox(pShopList) {
+ showShoppingBox=(pShopList)=> {
     let totalPrice = 0;
     let shoppingTable = " "
     shoppingTable = `
