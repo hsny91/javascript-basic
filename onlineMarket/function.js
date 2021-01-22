@@ -86,7 +86,7 @@ function createEmptyShoppingSide() {
     </section>  `
 }
 
-function createUI(pList) {
+ createUI=(pList)=> {
     headerElement.innerHTML = createHeader();
     productElement.innerHTML = createProductList(pList);
 }
