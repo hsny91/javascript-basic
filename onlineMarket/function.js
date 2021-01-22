@@ -121,7 +121,7 @@ function addProduct() {
     })
 }
 
-function deleteProductEvent() {
+deleteProductEvent=()=> {
     shoppingElement.addEventListener("click", (event) => {
         if (event.target.className === "delete btn btn-secondary") {
             deleteProduct(event);
