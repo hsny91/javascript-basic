@@ -1,5 +1,5 @@
 
-function createHeader() {
+ createHeader=()=> {
     return `
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand text-light" href="#">
