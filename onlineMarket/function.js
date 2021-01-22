@@ -91,7 +91,7 @@ function createUI(pList) {
     productElement.innerHTML = createProductList(pList);
 }
 
-function createShoppingList(event) {
+createShoppingList=(event)=> {
     productList.filter(product => {
         if (event.target.id === product.productName) {
             shoppingList.push(product);
