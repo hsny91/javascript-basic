@@ -16,7 +16,7 @@ let clock = () => {
   
     let time = `${hrs}:${mins}:${secs}:${period}`;
     document.getElementById("clock").innerText = time;
-    setTimeout(clock, 1000);
+  
   };
   
-  clock();
+  setInterval(clock, 1000);
