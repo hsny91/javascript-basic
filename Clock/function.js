@@ -12,7 +12,8 @@
 
 
   
-let d = new Date();
+setInterval(function() {clock('en-US','America/New_York',0)}, 1000);
 
-let date1=d.toLocaleTimeString('en-US', { timeZone: 'America/New_York' })// AMERIKA
-let date2=d.toLocaleTimeString('en-NZ', { timeZone: 'Pacific/Chatham' })// yeni zelanda 
+setInterval(function() {clock('en-NZ','Pacific/Chatham',1)}, 1000);
+
+setInterval(function() {clock('en-GB','Europe/London',2)}, 1000);
