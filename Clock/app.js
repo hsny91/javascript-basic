@@ -1,50 +1,19 @@
-// let clock = () => {
-//     let date = new Date();
-//     let hrs = date.getHours();
-//     let mins = date.getMinutes();
-//     let secs = date.getSeconds();
-//     let period = "AM";
-//     if (hrs == 0) {
-//       hrs = 12;
-//     } else if (hrs >= 12) {
-//       hrs = hrs - 12;
-//       period = "PM";
-//     }
-//     hrs = hrs < 10 ? "0" + hrs : hrs;
-//     mins = mins < 10 ? "0" + mins : mins;
-//     secs = secs < 10 ? "0" + secs : secs;
-  
-//     let time = `${hrs}:${mins}:${secs}:${period}`;
-//     document.getElementById("clock").innerText = time;
-  
-//   };
-  
-//   setInterval(clock, 1000);
 
-
-
-  // let clock = (pLand,pOrt) => {
-  //   var d = new Date();
-
-  //  var datem=d.toLocaleString(pLand, { timeZone: pOrt })
-    
-  
-  //   let time = `${datem}`;
-  //   document.getElementById("clock").innerText = time;
-  
-  // };
-  //toLocaleTimeString
-  let clock = (pLand,pOrt) => {
+  let clock = (pLand,pOrt,pID) => {
     var d = new Date();
 
    var datem=d.toLocaleTimeString(pLand, { timeZone: pOrt })
     
   
     let time = `${datem}`;
-    document.getElementById("clock").innerText = time;
+    document.getElementById(`clock${pID}`).innerText = time;
   
 };
 
 
 
-  setInterval(function() {clock('en-US','America/New_York')}, 1000);
+  setInterval(function() {clock('en-US','America/New_York',0)}, 1000);
+
+  setInterval(function() {clock('en-NZ','Pacific/Chatham',1)}, 1000);
+
+  setInterval(function() {clock('en-GB','Europe/London',2)}, 1000);
