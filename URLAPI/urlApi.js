@@ -1,0 +1,9 @@
+
+
+
+
+
+let myUsername = "someguy";
+let addr = new URL("https://mysite.com/login");
+addr.username = myUsername;
+console.log(addr)
