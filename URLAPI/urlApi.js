@@ -26,11 +26,14 @@ A USVString containing the username specified before the domain name.
  */
 
 
-let address = new URL("https://developer.mozilla.org/en-US/docs/Web/API/URL_API");
-let host = address.host;
-let path = address.pathname;
-console.log("host:" +host)
-console.log("path:" +path)
+// let address = new URL("https://developer.mozilla.org/en-US/docs/Web/API/URL_API");
+// let host = address.host;
+// address.hostname="gulsah";
+// let path = address.pathname;
+// console.log("host:" +host)
+// console.log("path:" +path)
+// console.log(address.hostname)
+
 
 
 let myUsername = "someguy";
@@ -38,3 +41,20 @@ let addr = new URL("https://mysite.com/login");
 addr.username = myUsername;
 console.log(addr)
 
+
+// let url = new URL('https://example.com?foo=1&bar=2');
+// let params = new URLSearchParams(url.search.slice(1));
+
+// //Add a second foo parameter.
+// params.append('foo', 4);
+// //Query string is now: 'foo=1&bar=2&foo=4'
+// console.log(params);
+
+
+// let url = new URL('https://example.com?foo=1&bar=2&foo=3');
+// let params = new URLSearchParams(url.search);
+
+// Delete the foo parameter.
+// params.delete('foo'); 
+// console.log(params.toString())
+// console.log(params)
