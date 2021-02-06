@@ -51,10 +51,10 @@ params.append('foo', 4);
 console.log(params);
 
 
-// let url = new URL('https://example.com?foo=1&bar=2&foo=3');
-// let params = new URLSearchParams(url.search);
+let url = new URL('https://example.com?foo=1&bar=2&foo=3');
+let params = new URLSearchParams(url.search);
 
-// Delete the foo parameter.
-// params.delete('foo'); 
-// console.log(params.toString())
-// console.log(params)
+Delete the foo parameter.
+params.delete('foo'); 
+console.log(params.toString())
+console.log(params)
