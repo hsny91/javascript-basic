@@ -42,13 +42,13 @@ addr.username = myUsername;
 console.log(addr)
 
 
-// let url = new URL('https://example.com?foo=1&bar=2');
-// let params = new URLSearchParams(url.search.slice(1));
+let url = new URL('https://example.com?foo=1&bar=2');
+let params = new URLSearchParams(url.search.slice(1));
 
-// //Add a second foo parameter.
-// params.append('foo', 4);
-// //Query string is now: 'foo=1&bar=2&foo=4'
-// console.log(params);
+//Add a second foo parameter.
+params.append('foo', 4);
+//Query string is now: 'foo=1&bar=2&foo=4'
+console.log(params);
 
 
 // let url = new URL('https://example.com?foo=1&bar=2&foo=3');
