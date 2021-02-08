@@ -4,19 +4,17 @@ let isRight = 'Not In Order!';
 
 let Eleman=document.querySelector(".col-sm")
 
-Eleman.addEventListener("drop",(event)=>{
-    compare(event);
-});
+
 
 
 Eleman.addEventListener("dragover",(event)=>{
-    
+  event.preventDefault();
 });
 
-
-Eleman.addEventListener("drag",(event)=>{
-    
+Eleman.addEventListener("mousedown",(event)=>{
+document.getElementById(event.target.id).style.backgroundColor="tomato"
 });
+
 
 Eleman.addEventListener("dragstart",(event)=>{
   event.dataTransfer.setData("Text", event.target.id);
