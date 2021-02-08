@@ -1,4 +1,32 @@
-#container{
+.col-sm{
+  height:20vh;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: cadetblue;
+}
+.row{
+  height:100vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #container{
     width: 300px;
     display: block;
     margin: auto;
@@ -15,4 +43,4 @@
   #list li{
     margin: 10px;
     cursor: pointer;
-  }
+  } */
