@@ -1,6 +1,6 @@
-var list = document.getElementById('list')
-var base, randomized, dragging, draggedOver;
-var isRight = 'Not In Order!';
+let containerDiv = document.querySelector('#list')
+let base, randomized, dragging, draggedOver;
+let isRight = 'Not In Order!';
 
 const genRandom = (array) => {
     base = array.slice()
@@ -21,9 +21,9 @@ let renderBody = (pList) => {
     )
     return syllableList;
 }
-const renderItems = (data) => {
+const renderItems = (pList) => {
     renderHeader();
-    list.innerHTML = renderBody(data);
+    containerDiv.innerHTML = renderBody(pList);
 }
 
 
@@ -45,9 +45,9 @@ document.addEventListener("drop", (event) => {
         compare(event);
     }
 });
-const compare = (e) => {
-    var index1 = randomized.indexOf(dragging);
-    var index2 = randomized.indexOf(draggedOver);
+const compare = (event) => {
+    let index1 = randomized.indexOf(dragging);
+    let index2 = randomized.indexOf(draggedOver);
     randomized.splice(index1, 1)
     randomized.splice(index2, 0, dragging)
 
@@ -58,14 +58,14 @@ const compare = (e) => {
 };
 
 
-const setDraggedOver = (e) => {
-    e.preventDefault();
-    draggedOver = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText : parseInt(e.target.innerText)
+let setDraggedOver = (event) => {
+    event.preventDefault();
+    draggedOver = event.target.id;
 }
 
-const setDragging = (e) => {
-    dragging = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText : parseInt(e.target.innerText)
+let setDragging = (event) => {
+    dragging = event.target.id;
 }
 
-// genRandom([0, 1, 2, 3, 4, 5, 6])
+
 genRandom(['hus', 'ni', 'ye'])
