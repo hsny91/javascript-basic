@@ -1,16 +1,16 @@
 
-  .row{
+  .container{
     height:80vh;
   }
   .syllable{
-      background-color: cadetblue;
-      border: solid 1px blue;  
-  }
-  .col{
+    background-color: cadetblue;
+    border: solid 1px blue;  
     height:20vh;
     border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: cadetblue;
+    color: white;
+    font-size: 2em;
   }
