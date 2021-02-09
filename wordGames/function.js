@@ -1,17 +1,19 @@
 
-
-
-const genRandom = (array) => {
+ const genRandom = (array) => {
     base = array.slice()
     randomized = array.sort(() => Math.random() - 0.5)
+    if (randomized.join("") !== base.join("")) {
         renderItems(randomized)
+    } 
+    else {
+        genRandom()
     }
-
+}
+ 
 document.addEventListener("drag", (event) => {
     if (event.target.className === "col syllable") {
         setDragging(event);
     }
-
 });
 
 document.addEventListener("dragover", (event) => {
