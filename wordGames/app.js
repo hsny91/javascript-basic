@@ -7,13 +7,16 @@ const genRandom = (array) => {
     randomized = array.sort(() => Math.random() - 0.5)
     if (randomized.join("") !== base.join("")) {
         renderItems(randomized)
-    } else {
+    } 
+    else {
         genRandom()
+        isRight='In Order'
     }
 }
 let renderHeader = () => {
     document.querySelector('#isRight').innerHTML = isRight
 }
+
 let renderBody = (pList) => {
     let syllableList = "";
     pList.map((word) =>
@@ -21,6 +24,7 @@ let renderBody = (pList) => {
     )
     return syllableList;
 }
+
 const renderItems = (pList) => {
     renderHeader();
     containerDiv.innerHTML = renderBody(pList);
@@ -37,23 +41,20 @@ document.addEventListener("drag", (event) => {
 document.addEventListener("dragover", (event) => {
     if (event.target.className === "col syllable") {
         setDraggedOver(event);
-
     }
 });
+
 document.addEventListener("drop", (event) => {
     if (event.target.className === "col syllable") {
         compare(event);
     }
 });
+
 const compare = (event) => {
     let index1 = randomized.indexOf(dragging);
     let index2 = randomized.indexOf(draggedOver);
     randomized.splice(index1, 1)
     randomized.splice(index2, 0, dragging)
-
-    isRight = randomized.join("") === base.join("") ?
-        'In Order!' : 'Not In Order!'
-
     renderItems(randomized)
 };
 
