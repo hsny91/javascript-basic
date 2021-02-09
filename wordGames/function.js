@@ -6,12 +6,9 @@ let isRight = 'Not In Order!';
 const genRandom = (array) => {
     base = array.slice()
     randomized = array.sort(() => Math.random() - 0.5)
-    if (randomized.join("") !== base.join("")) {
         renderItems(randomized)
-    } else {
-        genRandom()
     }
-}
+
 let renderHeader = () => {
     document.querySelector('#isRight').innerHTML = isRight
 }
@@ -77,15 +74,20 @@ let setDragging = (event) => {
 }
 
 
-document.addEventListener("click", (event) => {
-    if (event.target.id === "check") {
-        isRight = randomized.join("") === base.join("") ?
-        'In Order!' : 'Not In Order!'
-          renderItems(randomized)
+
+
+
+
+
+
+/**
+ * const genRandom = (array) => {
+    base = array.slice()
+    randomized = array.sort(() => Math.random() - 0.5)
+    if (randomized.join("") !== base.join("")) {
+        renderItems(randomized)
+    } else {
+        genRandom()
     }
-});
-
-
-
-
-
+}
+ */
