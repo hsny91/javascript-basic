@@ -6,6 +6,11 @@
 //     name: "DEFTER",
 //     syllables: ["DEF", "TER"]
 //   }
+let containerDiv = document.querySelector('#list')
+let buttonGroupDiv=document.querySelector('#button-group');
+let base, randomized, dragging, draggedOver;
+let isRight = 'Not In Order!';
+
 let wordList = [{
         word: ['HUS', 'NI', 'YE']
     },
