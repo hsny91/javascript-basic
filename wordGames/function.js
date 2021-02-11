@@ -28,7 +28,7 @@ document.addEventListener("drop", (event) => {
     }
 });
 
-const compare = (event) => {
+let compare = (event) => {
     let index1 = randomized.indexOf(dragging);
     let index2 = randomized.indexOf(draggedOver);
     randomized.splice(index1, 1)

@@ -1,4 +1,4 @@
-.col-sm{
+.col{
   height:20vh;
   border: 1px solid black;
   display: flex;
@@ -8,6 +8,9 @@
 }
 .row{
   height:100vh;
+}
+.dragable.dragging{
+opacity: .5;
 }
 
 
