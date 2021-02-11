@@ -32,7 +32,9 @@ let compare = (event) => {
     let index1 = randomized.indexOf(dragging);
     let index2 = randomized.indexOf(draggedOver);
     randomized.splice(index1, 1)
-    
+    randomized.splice(index2, 0, dragging)
+    renderItems(randomized)
+};
 
 
 let setDraggedOver = (event) => {
