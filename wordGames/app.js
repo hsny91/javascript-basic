@@ -1,47 +1,60 @@
-// let words = [{
-//     name: "BILGISAYAR",
-//     syllables: ["BIL", "GI", "SA", "YAR"]
-//   },
-//   {
-//     name: "DEFTER",
-//     syllables: ["DEF", "TER"]
-//   }
-let wordList = [{
-    word: ['HUS', 'NI', 'YE']
-},
-{
-    word: ['DEF', 'TER', ]
-},
-{
-    word: ['DE', 'NE', 'ME']
-},
-{
-    word: ['A', 'YAK', 'KA', 'BI']
-},
-{
-    word: ['MEH', 'MET']
-},
+/**
+ * WORD GAME
+ * Oyun basladiginda Random olarak hecelerine ayrilmis bir kelime gelecek.
+ * Heceler Drag & Drop yontemi ile anlamli olarak siralip bitirildiginde kullaniciya "DOGRU"  veya ''YANLIS" mesaji bildirilecek.
+ * Data olarak Minimum 10 Kelime olmalacak
+ * 'Next' butonu tiklandiginda hecelerine karisik olarak ayrilmis bir kelime gelecek.
+ * 'Check' butonu tiklandiginda kelimenin dogru veya yanlisligi kontrol edilecek.
+ * Analiz:
+ * 1.Kelimeler ve heceler bir arrayde tutulur.
+ * 2.Her hece bir div icinde ve bu hece grubu da bir container div icinde gösterilecek bir yapi olusturulur
+ * 3.Heceler sort methodu ile karistrililir
+ * 4.Karistirilan hece grubu map methodu ile container div icine yazdirilir.
+ * 5.Tüm hecelere DragnDrop eventleri tanimlanir
+ * 6.Next butonuna basildiginda kelime listesinden random olarak bir kelime ve hece grubu secilerek ekrana yazdirilir.
+ * 7.Check butonuna basildiginda hece grubunun dogru siralip siralanmadigi kontrol edilir.
+ */
+const dragableItems = document.querySelectorAll(".drag-item");
+const dragList = document.querySelector("#drag-list");
+const buttons = document.querySelector("#buttons");
+const container = document.querySelector("#container");
 
-]
-let containerDiv = document.querySelector('#list')
-let buttonGroupDiv=document.querySelector('#button-group');
-let base, randomized, dragging, draggedOver;
-let isRight = 'Not In Order!';
-let wordArrayLenght = wordList.length;
-genRandom(wordList[0].word)
 
-document.addEventListener("click", (event) => {
-    if (event.target.id === "check") {
-        isRight = randomized.join("") === base.join("") ?
-            'In Order!' : 'Not In Order!'
-        renderItems(randomized)
-    }
-});
+let correctWord, mixSylbList, dragging, draggedOver;
 
-document.addEventListener("click", (event) => {
-    if (event.target.id === "random") {
-        let index = Math.floor(Math.random() * wordArrayLenght);
-        isRight =  'Not In Order!'
-        genRandom(wordList[index].word)
-    }
-});
+let words = [{
+    syllables: ["BIL", "GI", "SA", "YAR"]
+  },
+  {
+    syllables: ['A','YAK','KA','BI','LIK']
+  },
+  {
+    syllables: ['KUR','SUN','KA','LEM']
+  },
+  {
+    syllables: ['HI','CO','DERS']
+  },
+  {
+    syllables: ["TE", "LE", "FON"]
+  },
+  {
+    syllables: ['CEK','ME','CE']
+  },
+  {
+    syllables: ['MU','REB','BI','YE']
+  },
+  {
+    syllables: ["OG", "RET", "MEN"]
+  },
+  {
+    syllables: ['OG', 'REN', 'CI','LER']
+  },
+  {
+    syllables: ['KUR','SI','YER']
+  }
+];
+
+
+
+shuffleSyllableList(words[2].syllables);
+
