@@ -3,7 +3,7 @@
  * @param {*} pSyllableList 
  */
 function shuffleSyllableList(pSyllableList) {
-    correctWord = pSyllableList.slice()
+    correctWord = pSyllableList
     mixSylbList = pSyllableList.sort(() => Math.random() - 0.5)
     createUI(mixSylbList)
 }

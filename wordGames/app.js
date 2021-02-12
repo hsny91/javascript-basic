@@ -22,7 +22,7 @@ const container = document.querySelector("#container");
 
 let correctWord, mixSylbList, dragging, draggedOver;
 
-let words = [{
+let wordList = [{
     syllables: ["BIL", "GI", "SA", "YAR"]
   },
   {
@@ -56,5 +56,5 @@ let words = [{
 
 
 
-shuffleSyllableList(words[2].syllables);
+shuffleSyllableList(wordList[2].syllables);
 

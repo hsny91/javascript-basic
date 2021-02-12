@@ -13,7 +13,7 @@ document.addEventListener("click", (e) => {
 
 let generateRandomWord = () => {
     dragList.style.backgroundColor = "white";
-    let index = Math.floor(Math.random() * words.length)
-    let word = words[index].syllables
+    let index = Math.floor(Math.random() * wordList.length)
+    let word = wordList[index].syllables
     shuffleSyllableList(word);
 }

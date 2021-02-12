@@ -16,13 +16,12 @@ document.addEventListener("dragover", (e) => {
     if (e.target.className === "drag-item") {
         setDraggedOver(e);
     }
-}) 
+})
 
 /**
  * drop fonksiyonunun tetiklenmesini saglar
  */
-
-    document.addEventListener("drop", (e) => {
+document.addEventListener("drop", (e) => {
     if (e.target.className === "drag-item") {
         e.preventDefault();
         dropped();
@@ -45,7 +44,6 @@ let dropped = () => {
     let indexDragging = mixSylbList.indexOf(dragging)
     let indexDragOver = mixSylbList.indexOf(draggedOver)
     mixSylbList.splice(indexDragging, 1)
-    mixSylbList.splice(indexDragOver, 0 , dragging)
+    mixSylbList.splice(indexDragOver, 0, dragging)
     createUI(mixSylbList)
 }
-
