@@ -11,3 +11,7 @@ function shuffleSyllableList(pSyllableList) {
  * UI'i olusturur
  * @param {*} pMixSylbList 
  */
+function createUI(pMixSylbList) {
+    dragList.innerHTML = addSyllables(pMixSylbList);
+    buttons.innerHTML = createButtons();
+}
