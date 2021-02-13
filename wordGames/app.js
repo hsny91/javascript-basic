@@ -50,7 +50,7 @@ let wordList = [{
     syllables: ['OG', 'REN', 'CI','LER']
   },
   {
-    syllables: ['KUR','KUR','YER']
+    syllables: ['KUR','SI','YER']
   }
 ];
 
