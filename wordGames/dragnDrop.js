@@ -45,4 +45,7 @@ let dropped = () => {
     let indexDragOver = mixSylbList.indexOf(draggedOver)
     console.log(indexDragLeave)
     console.log(indexDragOver)
+    mixSylbList.splice(indexDragLeave, 1)
+    mixSylbList.splice(indexDragOver, 0, dragLeave)
+    createUI(mixSylbList)
 }
