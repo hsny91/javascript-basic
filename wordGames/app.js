@@ -20,7 +20,7 @@ const buttons = document.querySelector("#buttons");
 const container = document.querySelector("#container");
 
 
-let correctWord, mixSylbList, dragging, draggedOver;
+let correctWord, mixSylbList, dragLeave, draggedOver;
 
 let wordList = [{
     syllables: ["BIL", "GI", "SA", "YAR"]
@@ -50,7 +50,7 @@ let wordList = [{
     syllables: ['OG', 'REN', 'CI','LER']
   },
   {
-    syllables: ['KUR','SI','YER']
+    syllables: ['KUR','KUR','YER']
   }
 ];
 

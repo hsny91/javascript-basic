@@ -4,7 +4,7 @@
 
 document.addEventListener("drag", (e) => {
     if (e.target.className === "drag-item") {
-        setDragging(e)
+        setDragLeave(e)
     }
 });
 
@@ -33,17 +33,19 @@ let setDraggedOver = (event) => {
     draggedOver = event.target.id;
 }
 
-let setDragging = (event) => {
-    dragging = event.target.id;
+let setDragLeave = (event) => {
+    dragLeave = event.target.id;
 }
 
 /**
  * birakilan hecenin birakildigi bölgeye girmesini, birakilan bölgedeki hecenin ise kaydirilmasini saglar
  */
 let dropped = () => {
-    let indexDragging = mixSylbList.indexOf(dragging)
+    let indexDragLeave = mixSylbList.indexOf(dragLeave)
     let indexDragOver = mixSylbList.indexOf(draggedOver)
-    mixSylbList.splice(indexDragging, 1)
-    mixSylbList.splice(indexDragOver, 0, dragging)
+    console.log(indexDragLeave)
+    console.log(indexDragOver)
+    mixSylbList.splice(indexDragLeave, 1)
+    mixSylbList.splice(indexDragOver, 0, dragLeave)
     createUI(mixSylbList)
 }
