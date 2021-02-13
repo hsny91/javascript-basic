@@ -54,7 +54,5 @@ let wordList = [{
   }
 ];
 
-
-
 shuffleSyllableList(wordList[2].syllables);
 
