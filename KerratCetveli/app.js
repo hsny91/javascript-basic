@@ -8,9 +8,7 @@
  * 6.Listenin sonuna toplam ögrenci sayisi yazdirilacak.
  */
 const mainElement = document.querySelector("#app");
-let counter=0;
-
-let playerList = [];
+let counter = 0;
 let firstNumber, secondNumber, resultNumber;
 
 
@@ -34,35 +32,40 @@ function createStartUI() {
     mainElement.innerHTML = createPlayerList()
 }
 createStartUI()
-///////***********/
+///////***********///////////
 
 function createPlayerListTable() {
-    return playerList.map((player, index) => `
-    <div>
-    <table class="player-table">
+    let newList = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        let item = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        newList.push(item);
+    }
+    return newList.map((players) =>
+        players.map((player, index) => {
+            return `
+            <div>
+           <table class="player-table">
     <tbody>
       <tr>
         <td>${index+1}.Player:</td>
-        <td id="player-${index}" class="player-name">${player.playerName}</td>
+        <td id="${player.playerName}" class="player-name">${player.playerName}</td>
+        <td class="player-name">${player.playerPuan}</td>
       </tr>
     </tbody>
   </table>
   </div>
-    `).join("")
-
+    `
+        })).join("")
 }
 
 mainElement.addEventListener("click", function (event) {
     if (event.target.className === "player-name") {
-        playerList.filter((player, index) => {
-            if (event.target.id === `player-${index}`) {
-                refreshUI()
-            }
-        })
+        refreshUI()
     }
 })
-function createQuestion(pFirstNumber, pSecondNumber, pCounter){
- return `<div id="calculation-place">
+
+function createQuestion(pFirstNumber, pSecondNumber, pCounter) {
+    return `<div id="calculation-place">
     <div id="point">Question</div>
     <div id="sayi">Question-${pCounter}</div>
     <span id="first-number">${pFirstNumber}</span>
@@ -79,40 +82,39 @@ function createGameArea() {
     counter++
     firstNumber = Math.floor(Math.random() * 10);
     secondNumber = Math.floor(Math.random() * 10);
-   return createQuestion(firstNumber, secondNumber, counter)
+    return createQuestion(firstNumber, secondNumber, counter)
 }
-
-
 
 
 function refreshUI() {
-    if(counter<3){
+    if (counter < 3) {
         mainElement.innerHTML = createGameArea()
+    } else {
+        createStartUI();
     }
-   else{
-    createStartUI();
-   }
 }
 
 
-let playerNameArea = document.querySelector("#player-name");
+
 
 mainElement.addEventListener("click", (event) => {
+    let playerNameArea = document.querySelector("#player-name");
     event.preventDefault();
+    let deneme = []
     if (event.target.id === "add-player") {
-        playerList.push({
+        deneme.push({
             playerName: playerNameArea.value,
+            playerPuan: 0
         })
-        console.log(playerList)
+        let id = deneme[0].playerName
+        localStorage.setItem(id, JSON.stringify(deneme));
         createStartUI();
     }
 })
 
 
-
-
 mainElement.addEventListener('keypress', (event) => {
-   
+
     resultNumber = firstNumber * secondNumber;
     let resultNumberArea = document.querySelector("#result-number");
     if (event.key === 'Enter') {
