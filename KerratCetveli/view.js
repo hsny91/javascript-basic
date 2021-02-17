@@ -1,22 +1,57 @@
-let renderList=(parray)=> {
-    let table = `<table class="table table-striped table-dark table-hover">`;
-    table += `<thead>`;
-    table += `<tr>
-                <th>Student Name</th>
-                <th>Score</th>
-                <th>Day</th>
-              </tr>`;
-    table += `</thead>`;
-    parray.map((item) => {
-        table += `<tr>
-                <td id=${item.studentName}>${item.studentName}</td>
-                <td id=${item.score}>${item.score}</td>
-                <td id=${item.dates}>${item.dates}</td>
-              </tr>`;
-      })
-      .join("");
-    table += `</table>`;
-    document.querySelector("#student-list").innerHTML = table;
 
+const mainElement = document.querySelector("#app");
+
+createStartUI()
+
+function createStartUI() {
+  mainElement.innerHTML = createPlayerList()
+}
+
+function createPlayerList() {
+  return `
+  <div>
+  <form id="player-info" class="needs-validation" novalidate>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="input-player"
+                      placeholder="Player Name">
+              </div>
+                  <button id="add-player"  class="btn btn-primary">Add Player</button>
+          </form>
+      </div>
+          ${createPlayerListTable()}
+  `
+}
+
+
+function createPlayerListTable() {
+  return `
+          <div>
+         <table class="player-table">
+  <tbody>
+   ${mapArray()}
+  </tbody>
+</table>
+</div>
+  `
+}
+
+function mapArray(){
+  return getLocalStorageList().map((players) =>
+  players.map((player, index) => 
+     ` <tr>
+      <td>Player:</td>
+      <td id="${player.playerName}" class="player-name">${player.playerName}</td>
+      <td class="player-name">${player.playerPuan}</td>
+    </tr>`
+  )).join("")
+}
+
+
+function getLocalStorageList(){
+  let newList = [];
+  for (let i = 0; i < localStorage.length; i++) {
+      let item = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      newList.push(item);
   }
-
+  return newList;
+}

@@ -7,62 +7,52 @@
  * 5.Array'de tutulan bilgiler ekranin sag tarafina yazdirilacak,
  * 6.Listenin sonuna toplam ögrenci sayisi yazdirilacak.
  */
-const mainElement = document.querySelector("#app");
+
 let counter = 0;
 let firstNumber, secondNumber, resultNumber;
 
+let studentName = "";
 
-function createPlayerList() {
-    return `
-    <div>
-    <form id="player-info" class="needs-validation" novalidate>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="player-name"
-                        placeholder="Player Name">
-                </div>
-                    <button id="add-player"  class="btn btn-primary">Add Player</button>
-            </form>
-        </div>
-            ${createPlayerListTable()}
-    `
-}
-
-
-function createStartUI() {
-    mainElement.innerHTML = createPlayerList()
-}
-createStartUI()
-///////***********///////////
-
-function createPlayerListTable() {
-    let newList = [];
-    for (let i = 0; i < localStorage.length; i++) {
-        let item = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        newList.push(item);
+mainElement.addEventListener("click", (event) => {
+    let playerNameArea = document.querySelector("#input-player");
+    event.preventDefault();
+    let deneme = []
+    if (event.target.id === "add-player") {
+        deneme.push({
+            playerName: playerNameArea.value,
+            playerPuan: 0
+        })
+        let id = deneme[0].playerName
+        localStorage.setItem(id, JSON.stringify(deneme));
+        createStartUI();
     }
-    return newList.map((players) =>
-        players.map((player, index) => {
-            return `
-            <div>
-           <table class="player-table">
-    <tbody>
-      <tr>
-        <td>${index+1}.Player:</td>
-        <td id="${player.playerName}" class="player-name">${player.playerName}</td>
-        <td class="player-name">${player.playerPuan}</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-    `
-        })).join("")
-}
+})
 
 mainElement.addEventListener("click", function (event) {
     if (event.target.className === "player-name") {
         refreshUI()
+        studentName = event.target.id;
     }
 })
+
+function refreshUI() {
+    if (counter < 1) {
+        mainElement.innerHTML = createGameArea()
+    } else {
+        counter = 0;
+        createStartUI();
+        //localstoragae
+    }
+}
+
+
+function createGameArea() {
+    counter++
+    firstNumber = Math.floor(Math.random() * 10);
+    secondNumber = Math.floor(Math.random() * 10);
+    return createQuestion(firstNumber, secondNumber, counter)
+}
+
 
 function createQuestion(pFirstNumber, pSecondNumber, pCounter) {
     return `<div id="calculation-place">
@@ -78,51 +68,28 @@ function createQuestion(pFirstNumber, pSecondNumber, pCounter) {
     `
 }
 
-function createGameArea() {
-    counter++
-    firstNumber = Math.floor(Math.random() * 10);
-    secondNumber = Math.floor(Math.random() * 10);
-    return createQuestion(firstNumber, secondNumber, counter)
-}
 
-
-function refreshUI() {
-    if (counter < 3) {
-        mainElement.innerHTML = createGameArea()
-    } else {
-        createStartUI();
-    }
-}
-
-
-
-
-mainElement.addEventListener("click", (event) => {
-    let playerNameArea = document.querySelector("#player-name");
-    event.preventDefault();
-    let deneme = []
-    if (event.target.id === "add-player") {
-        deneme.push({
-            playerName: playerNameArea.value,
-            playerPuan: 0
-        })
-        let id = deneme[0].playerName
-        localStorage.setItem(id, JSON.stringify(deneme));
-        createStartUI();
-    }
-})
 
 
 mainElement.addEventListener('keypress', (event) => {
-
+    let puan = 0;
     resultNumber = firstNumber * secondNumber;
     let resultNumberArea = document.querySelector("#result-number");
     if (event.key === 'Enter') {
         if (resultNumber == resultNumberArea.value) {
-            //resultNumberArea.value = ""
+            puan += 10
+            refreshPuan(puan)
             refreshUI()
         } else {
             alert("nein")
         }
     }
 })
+
+function refreshPuan(puan) {
+    let activePerson = []
+    activePerson= JSON.parse(localStorage.getItem(studentName));
+     activePerson[0].playerPuan+=puan
+    console.log(activePerson)
+   localStorage.setItem(studentName, JSON.stringify(activePerson));
+}
