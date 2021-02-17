@@ -12,6 +12,7 @@ let counter = 0;
 let firstNumber, secondNumber, resultNumber;
 let studentName = "";
 const mainElement = document.querySelector("#app");
+let interval;
 
 createStartUI()
 
@@ -35,6 +36,7 @@ mainElement.addEventListener("click", function (event) {
     if (event.target.className === "player-name") {
         refreshUI()
         studentName = event.target.id;
+        interval= setInterval(refreshUI, 3000);
     }
 })
 
@@ -44,7 +46,7 @@ function refreshUI() {
     } else {
         counter = 0;
         createStartUI();
-        //localstoragae
+        clearInterval(interval);
     }
 }
 
@@ -95,14 +97,14 @@ function checkTrue(pPuan) {
     pPuan += 10
     refreshPuan(pPuan)
     refreshUI()
-    alert("true")
+    
 }
 
 function checkFalse(pPuan) {
     pPuan -= 5
     refreshPuan(pPuan)
     refreshUI()
-    alert("false")
+
 }
 
 function refreshPuan(puan) {
