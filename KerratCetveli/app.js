@@ -72,24 +72,30 @@ function createQuestion(pFirstNumber, pSecondNumber, pCounter) {
 
 
 mainElement.addEventListener('keypress', (event) => {
-    let puan = 0;
-    resultNumber = firstNumber * secondNumber;
-    let resultNumberArea = document.querySelector("#result-number");
     if (event.key === 'Enter') {
-        if (resultNumber == resultNumberArea.value) {
-            puan += 10
-            refreshPuan(puan)
-            refreshUI()
-        } else {
-            alert("nein")
-        }
+        checkResult();
     }
 })
 
+function checkResult() {
+    let resultNumberArea = document.querySelector("#result-number");
+    let puan = 0;
+    resultNumber = firstNumber * secondNumber;
+    if (resultNumber == resultNumberArea.value) {
+        puan += 10
+        refreshPuan(puan)
+        refreshUI()
+    } else {
+        puan -= 5
+        refreshPuan(puan)
+        refreshUI()
+    }
+}
+
 function refreshPuan(puan) {
     let activePerson = []
-    activePerson= JSON.parse(localStorage.getItem(studentName));
-     activePerson[0].playerPuan+=puan
+    activePerson = JSON.parse(localStorage.getItem(studentName));
+    activePerson[0].playerPuan += puan
     console.log(activePerson)
-   localStorage.setItem(studentName, JSON.stringify(activePerson));
+    localStorage.setItem(studentName, JSON.stringify(activePerson));
 }
