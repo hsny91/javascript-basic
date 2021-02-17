@@ -12,7 +12,7 @@ let counter = 0;
 let firstNumber, secondNumber, resultNumber;
 let studentName = "";
 const mainElement = document.querySelector("#app");
-let interval;
+let timerSecond=0;
 
 createStartUI()
 
@@ -36,7 +36,8 @@ mainElement.addEventListener("click", function (event) {
     if (event.target.className === "player-name") {
         refreshUI()
         studentName = event.target.id;
-        interval= setInterval(refreshUI, 3000);
+        timeStart();
+        
     }
 })
 
@@ -46,10 +47,19 @@ function refreshUI() {
     } else {
         counter = 0;
         createStartUI();
-        clearInterval(interval);
+       // clearInterval(interval);
     }
 }
-
+function timeStart() {
+    setInterval(() => {
+      timerSecond++;
+      document.querySelector("#timerprint").innerHTML ="TIME: "+timerSecond;
+      if (this.timerSecond == 10) {
+        this.refreshUI();
+        timerSecond = 0;
+      }
+    }, 1000);
+  }
 
 function createGameArea() {
     counter++
