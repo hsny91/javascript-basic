@@ -10,8 +10,11 @@
 
 let counter = 0;
 let firstNumber, secondNumber, resultNumber;
-
 let studentName = "";
+const mainElement = document.querySelector("#app");
+
+createStartUI()
+
 
 mainElement.addEventListener("click", (event) => {
     let playerNameArea = document.querySelector("#input-player");
@@ -36,7 +39,7 @@ mainElement.addEventListener("click", function (event) {
 })
 
 function refreshUI() {
-    if (counter < 1) {
+    if (counter < 2) {
         mainElement.innerHTML = createGameArea()
     } else {
         counter = 0;
@@ -82,14 +85,24 @@ function checkResult() {
     let puan = 0;
     resultNumber = firstNumber * secondNumber;
     if (resultNumber == resultNumberArea.value) {
-        puan += 10
-        refreshPuan(puan)
-        refreshUI()
+        checkTrue(puan)
     } else {
-        puan -= 5
-        refreshPuan(puan)
-        refreshUI()
+        checkFalse(puan)
     }
+}
+
+function checkTrue(pPuan) {
+    pPuan += 10
+    refreshPuan(pPuan)
+    refreshUI()
+    alert("true")
+}
+
+function checkFalse(pPuan) {
+    pPuan -= 5
+    refreshPuan(pPuan)
+    refreshUI()
+    alert("false")
 }
 
 function refreshPuan(puan) {

@@ -1,7 +1,4 @@
 
-const mainElement = document.querySelector("#app");
-
-createStartUI()
 
 function createStartUI() {
   mainElement.innerHTML = createPlayerList()
