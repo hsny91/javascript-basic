@@ -7,59 +7,62 @@
  * 5.Array'de tutulan bilgiler ekranin sag tarafina yazdirilacak,
  * 6.Listenin sonuna toplam ögrenci sayisi yazdirilacak.
  */
-
+const mainElement = document.querySelector("#app");
 let counter = 0;
 let firstNumber, secondNumber, resultNumber;
-let studentName = "";
-const mainElement = document.querySelector("#app");
-let timerSecond=0;
+let studentName = ""
+let downloadTimer = ""
+var audio = new Audio("./Corporate-Business.mp3");
+
 
 createStartUI()
 
-
 mainElement.addEventListener("click", (event) => {
-    let playerNameArea = document.querySelector("#input-player");
     event.preventDefault();
-    let deneme = []
     if (event.target.id === "add-player") {
-        deneme.push({
-            playerName: playerNameArea.value,
-            playerPuan: 0
-        })
-        let id = deneme[0].playerName
-        localStorage.setItem(id, JSON.stringify(deneme));
-        createStartUI();
+        setLocalPlayerList()
     }
+   
 })
+
+function setLocalPlayerList() {
+    let playerNameArea = document.querySelector("#input-player");
+    let playerList = []
+    playerList.push({
+        playerName: playerNameArea.value,
+        playerPuan: 0
+    })
+    let key = playerList[0].playerName
+    localStorage.setItem(key, JSON.stringify(playerList));
+    createStartUI();
+}
 
 mainElement.addEventListener("click", function (event) {
     if (event.target.className === "player-name") {
+        studentName = event.target.id
         refreshUI()
-        studentName = event.target.id;
-        timeStart();
-        
+        toggleFullScreen()
     }
 })
 
 function refreshUI() {
-    if (counter < 2) {
+    clearInterval(downloadTimer)
+    startTimer()
+    countQuestion()
+}
+
+function countQuestion() {
+     if (counter < 2) {
         mainElement.innerHTML = createGameArea()
+        audio.play()
     } else {
+        clearInterval(downloadTimer)
         counter = 0;
+        audio.pause();
+        exitFullScreen()
         createStartUI();
-       // clearInterval(interval);
     }
 }
-function timeStart() {
-    setInterval(() => {
-      timerSecond++;
-      document.querySelector("#timerprint").innerHTML ="TIME: "+timerSecond;
-      if (this.timerSecond == 10) {
-        this.refreshUI();
-        timerSecond = 0;
-      }
-    }, 1000);
-  }
 
 function createGameArea() {
     counter++
@@ -68,23 +71,32 @@ function createGameArea() {
     return createQuestion(firstNumber, secondNumber, counter)
 }
 
-
 function createQuestion(pFirstNumber, pSecondNumber, pCounter) {
     return `<div id="calculation-place">
-    <div id="point">Question</div>
-    <div id="sayi">Question-${pCounter}</div>
-    <span id="first-number">${pFirstNumber}</span>
+    <div id="question-number">Question-${pCounter}</div>
+    
+    <span class="numbers" id="first-number">${pFirstNumber}</span>
     <span id="cross-mark">x</span>
-    <span id="second-number">${pSecondNumber}</span>
+    <span class="numbers" id="second-number">${pSecondNumber}</span>
     <span id="equal-mark">=</span>
     <input id="result-number"></input>
    </div>
-   <div id="timer"></div>
+   <progress value="0" max="10" id="progressBar"></progress>
     `
 }
 
-
-
+function startTimer() {
+    let timeleft = 9;
+    downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(downloadTimer);
+            checkResult();
+        }
+        const progressElement = document.getElementById("progressBar")
+        progressElement.value = 10 - timeleft;
+        timeleft -= 1;
+    }, 1000);
+}
 
 mainElement.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
@@ -93,34 +105,45 @@ mainElement.addEventListener('keypress', (event) => {
 })
 
 function checkResult() {
-    let resultNumberArea = document.querySelector("#result-number");
-    let puan = 0;
     resultNumber = firstNumber * secondNumber;
+    let point = 0
+    let resultNumberArea = document.querySelector("#result-number");
     if (resultNumber == resultNumberArea.value) {
-        checkTrue(puan)
+       setTrue(point)
     } else {
-        checkFalse(puan)
+       setFalse(point)
+    }
+    refreshUI()
+}
+
+function setTrue(pPoint) {
+    pPoint += 10
+    updatePoint(pPoint) 
+}
+
+function setFalse(pPoint) {
+    pPoint -= 5
+    updatePoint(pPoint)
+}
+
+function updatePoint(pPoint) {
+    let activePerson = []
+    activePerson = JSON.parse(localStorage.getItem(studentName));
+    console.log(activePerson)
+    activePerson[0].playerPuan += pPoint
+    localStorage.setItem(studentName, JSON.stringify(activePerson));
+}
+
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        mainElement.requestFullscreen();
+    }else if (document.exitFullscreen) {
+        document.exitFullscreen();
     }
 }
 
-function checkTrue(pPuan) {
-    pPuan += 10
-    refreshPuan(pPuan)
-    refreshUI()
-    
-}
-
-function checkFalse(pPuan) {
-    pPuan -= 5
-    refreshPuan(pPuan)
-    refreshUI()
-
-}
-
-function refreshPuan(puan) {
-    let activePerson = []
-    activePerson = JSON.parse(localStorage.getItem(studentName));
-    activePerson[0].playerPuan += puan
-    console.log(activePerson)
-    localStorage.setItem(studentName, JSON.stringify(activePerson));
+function exitFullScreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    }
 }
