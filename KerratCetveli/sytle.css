@@ -1,0 +1,54 @@
+body {
+    background: linear-gradient(to left, #a6f393, #212c21);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 50vw;
+
+}
+
+#player-info{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.player-table{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#player-name{
+    text-align: start;
+}
+
+.numbers{
+    border: solid grey 1px;
+    margin: 2vh;
+    padding: 0 2vh;
+    background-color: rgb(141, 177, 141);
+}
+
+#question-number{
+    text-align: center;
+    margin-bottom: 3vh;
+}
+progress{
+    margin-top: 2vh;
+    width: 60%;
+    height: 4vh;
+}
+
+#calculation-place{
+   
+font-size: x-large;
+}
