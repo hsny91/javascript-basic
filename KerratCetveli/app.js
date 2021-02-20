@@ -64,12 +64,7 @@ function countQuestion() {
     }
 }
 
-function createGameArea() {
-    counter++
-    firstNumber = Math.floor(Math.random() * 10);
-    secondNumber = Math.floor(Math.random() * 10);
-    return createQuestion(firstNumber, secondNumber, counter)
-}
+
 
 function createQuestion(pFirstNumber, pSecondNumber, pCounter) {
     return `<div id="calculation-place">
