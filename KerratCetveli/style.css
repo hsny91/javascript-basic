@@ -40,3 +40,12 @@ main{
     text-align: center;
     margin-bottom: 3vh;
 }
+progress{
+    margin-top: 2vh;
+    width: 60%;
+    height: 4vh;
+}
+
+#calculation-place{ 
+font-size: x-large;
+}
