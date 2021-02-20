@@ -42,5 +42,13 @@ function addPlayer() {
   return createPlayerRow(storageList)
 }
 
-
+function createPlayerRow(pList) {
+  return pList.map((players) =>
+      players.map((player, index) =>
+          ` <tr>
+      <td id="${player.playerName}" class="player-name">${player.playerName}</td>
+      <td>${player.playerPuan}</td>
+    </tr>`
+      )).join("")
+}
 
