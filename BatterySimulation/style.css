@@ -22,10 +22,3 @@ justify-content: center;
 align-self: center;
     width: 2vh;
 }
-.counter-row{
-    margin-bottom: 5vh;
-}
-.counter-item{
-    height: 4vh;
-    width: 5vw;
-}
