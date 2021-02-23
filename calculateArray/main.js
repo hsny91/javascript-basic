@@ -39,4 +39,3 @@ for (let index = 0; index < carParts.length; index++) {
     MAIN_METHOD(carParts[index])
 }
 
-console.log(autoList)
