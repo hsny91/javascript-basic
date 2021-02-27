@@ -34,9 +34,6 @@ const ADD_DATE_TO_THE_END = (pName) => {
     let addDate = pName + "__" + Date();
     return addDate;
 }
-//Tüm dizide bu fonksiyonun uygulanmasını sağlıyoruz.
-for (let index = 0; index < carParts.length; index++) {
-    MAIN_METHOD(carParts[index])
-}
+
 
 console.log(autoList)
