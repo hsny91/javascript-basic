@@ -1,7 +1,5 @@
 const mainElement = document.querySelector("#app");
 let currentCustomer;
-showStartPage();
-
 
 
 
