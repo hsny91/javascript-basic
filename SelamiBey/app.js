@@ -2,7 +2,7 @@ const mainElement = document.querySelector("#app");
 let currentCustomer;
 showStartPage();
 enterTheSystem();
-addCustomerHandler();
+
 
 
 mainElement.addEventListener("click", (event) => {
