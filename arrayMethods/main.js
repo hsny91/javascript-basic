@@ -15,7 +15,7 @@ function subtractedNumbers(pPartList) {
     return subtractedNumberList;
 
 }
-//conver to reverse
+
 function convertToReverse(pPartList) {
     let reversePartList = pPartList.map(part => part.split("").reverse().join(""));
     console.log(reversePartList);
