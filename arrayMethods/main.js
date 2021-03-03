@@ -8,7 +8,7 @@ function convertToUpperCase(pPartList) {
     console.log(upperCasePartList);
     return upperCasePartList;
 }
-//Numbers will be subtracted from part names
+
 function subtractedNumbers(pPartList) {
     let subtractedNumberList = pPartList.map(part => part.replace(/[0-9]/g, ''));
     console.log(subtractedNumberList);
