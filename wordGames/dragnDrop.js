@@ -1,7 +1,3 @@
-/**
- * Sürüklenecek elemana ilk kez tiklandiginda elemanin IDsini alir ve degiskene atar
- */
-
 document.addEventListener("drag", (e) => {
     if (e.target.className === "drag-item") {
         setDragLeave(e)
