@@ -15,9 +15,6 @@ document.addEventListener("dragover", (e) => {
     }
 })
 
-/**
- * drop fonksiyonunun tetiklenmesini saglar
- */
 document.addEventListener("drop", (e) => {
     if (e.target.className === "drag-item") {
         e.preventDefault();
