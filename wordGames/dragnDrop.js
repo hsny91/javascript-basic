@@ -8,9 +8,6 @@ document.addEventListener("drag", (e) => {
     }
 });
 
-/**
- * Sürüklenenen elemanin birakilacagi alanda bulunan elemanin IDsini alir ve degiskene atar 
- */
 
 document.addEventListener("dragover", (e) => {
     if (e.target.className === "drag-item") {
